@@ -25,7 +25,7 @@ public class AuthorizeController : Controller
             _options = options.Value;
         }
 
-        [HttpPost]
+        [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] ParamsUsers loginDatas)
         {
             var user = new IdentityUser { UserName = loginDatas.login };
@@ -47,7 +47,7 @@ public class AuthorizeController : Controller
                 return Json(new { Flag = false, Result = Errors });
             }
         }
-
+        [HttpPost("LogIn")]
         public async Task<IActionResult> LogIn([FromBody] ParamsUsers loginDatas)
         {
             var user = await _userManager.FindByNameAsync(loginDatas.login);
@@ -75,9 +75,10 @@ public class AuthorizeController : Controller
 
         }
 
+        [HttpGet("AuthorizeCheck")]
         public JsonResult AuthorizeCheck()
         {
-
+        
             if (User.Identity.IsAuthenticated)
             {
                 return Json(new { Flag = true });
@@ -88,6 +89,7 @@ public class AuthorizeController : Controller
             }
         }
 
+        [HttpGet("AuthCheck")]
         public JsonResult AuthCheck()
         {
             if (User.Identity.IsAuthenticated == true)
