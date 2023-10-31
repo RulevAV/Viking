@@ -7,22 +7,26 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Viking.Models.IdentityModels;
+using Viking.Services;
+using Viking.Services.Repositories;
 
 namespace Viking.Controllers;
 
 [ApiController]
-[Route("api/[controller]/[action]")]
+[Route("api/[controller]")]
 public class AuthorizeController : Controller
 {
-     private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly JWTSettings _options;
+        private readonly ITokenService _tokenService;
 
-        public AuthorizeController(UserManager<IdentityUser> user, SignInManager<IdentityUser> signIn, IOptions<JWTSettings> options)
+        public AuthorizeController(UserManager<IdentityUser> user, SignInManager<IdentityUser> signIn, IOptions<JWTSettings> options, ITokenService tokenService)
         {
             _userManager = user;
             _signInManager = signIn;
             _options = options.Value;
+            _tokenService = tokenService;
         }
 
         [HttpPost("Register")]
@@ -52,29 +56,39 @@ public class AuthorizeController : Controller
         {
             var user = await _userManager.FindByNameAsync(loginDatas.login);
 
+            if (user == null)
+                return Json(new { Flag = false, Answer = "Пользователь не найден, проверьте логин или зарегистрируйтесь" });
+            
             var result = await _signInManager.PasswordSignInAsync(user, loginDatas.password, false, false);
-
+            
+            if(!result.Succeeded)
+                return Json(new { Flag = false, Answer = "Доступ закрыт, проверьте правильность ввода пароля или зарегистрируйтесь" });
+            
             if (result.Succeeded)
             {
                 IEnumerable<Claim> claims = await _userManager.GetClaimsAsync(user);
 
-                var token = GetToken(user, claims);
+                var token = _tokenService.GenerateAccessToken(user, claims);
+                var refreshToken = _tokenService.GenerateRefreshToken();
 
+                await _tokenService.AddRefreshTokensToBase(Guid.Parse(user.Id), refreshToken );
+                
                 return Json(new { Token = token, Flag = true });
-            }
-            else if (user == null)
-            {
-                return Json(new { Flag = false, Answer = "Пользователь не найден, проверьте логин или зарегистрируйтесь" });
-            }
-            else if (!result.Succeeded)
-            {
-                return Json(new { Flag = false, Answer = "Доступ закрыт, проверьте правильность ввода пароля или зарегистрируйтесь" });
             }
 
             return Json(new { Flag = false, Answer = "Нераспознанная ошибка доступа" });
 
         }
 
+        [HttpPost("LogOut")]
+        public async Task<IActionResult> LogOut()
+        { 
+            await _signInManager.SignOutAsync();
+            
+            return Json(null);
+
+        }
+        
         [HttpGet("AuthorizeCheck")]
         public JsonResult AuthorizeCheck()
         {

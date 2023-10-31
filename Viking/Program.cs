@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Viking;
 using Viking.Models.IdentityModels;
+using Viking.Services;
+using Viking.Services.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,8 +22,8 @@ builder.Services.AddCors(options =>
         policy =>
         {
             policy.WithOrigins("https://localhost:7116",
-                    "https://localhost:44493/",
-                    "http://localhost:5282/")
+                    "https://localhost:44490/",
+                    "http://localhost:5147")
                 .AllowAnyMethod()
                 .AllowAnyHeader()
                 .SetIsOriginAllowed(origin => true) // allow any origin 
@@ -35,14 +37,15 @@ builder.Services.AddControllersWithViews();
 
 var services = builder.Services;
 
-var SecretKey = builder.Configuration.GetSection("JWTSettings:SecretKey").Value;
-var Issuer = builder.Configuration.GetSection("JWTSettings:Issuer").Value;
-var Aaudience = builder.Configuration.GetSection("JWTSettings:Audience").Value;
+var secretKey = builder.Configuration.GetSection("JWTSettings:SecretKey").Value;
+var issuer = builder.Configuration.GetSection("JWTSettings:Issuer").Value;
+var audience = builder.Configuration.GetSection("JWTSettings:Audience").Value;
 
-var signInKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SecretKey));
+var signInKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
 
 var connectionStringUsers = builder.Configuration.GetConnectionString("IdentityDB");
 builder.Services.AddDbContext<UserDbContext>(options => options.UseNpgsql(connectionStringUsers));
+builder.Services.AddDbContext<ApplycationDbContext>(options => options.UseNpgsql(connectionStringUsers));
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(t => { t.Password.RequireNonAlphanumeric = false; }).AddEntityFrameworkStores<UserDbContext>();
 
 builder.Services.Configure<JWTSettings>(builder.Configuration.GetSection("JWTSettings"));
@@ -66,9 +69,9 @@ builder.Services
         t.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
-            ValidIssuer = Issuer,
+            ValidIssuer = issuer,
             ValidateAudience = true,
-            ValidAudience = Aaudience,
+            ValidAudience = audience,
             ValidateLifetime = true,
             IssuerSigningKey = signInKey,
             ValidateIssuerSigningKey = true,
@@ -80,7 +83,7 @@ builder.Services
         options.Cookie.Expiration = TimeSpan.FromDays(1);
         options.ExpireTimeSpan = TimeSpan.FromDays(1);
     });
-
+services.AddScoped<ITokenService, TokenServices>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
