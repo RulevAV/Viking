@@ -5,28 +5,43 @@ using System.Text;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Viking.Models.IdentityModels;
+using Viking.Interfaces;
+using Viking.Models;
 using Viking.Models.JWTModels;
 
-namespace Viking.Services.Repositories;
+namespace Viking.Repositories;
 
 public class TokenServices : ITokenService
 {
     private readonly JWTSettings _options;
-    private readonly ApplycationDbContext _applycationDbContext;
+    private readonly conViking _applycationDbContext;
+    private readonly UserRefreshTokensRepositories _userRefreshTokensRepositories ;
+    private IEnumerable<Claim> _claims;
 
-    public TokenServices(IOptions<JWTSettings> options,ApplycationDbContext applycationDbContext)
+    public TokenServices(IOptions<JWTSettings> options,conViking applycationDbContext)
     {
         _options = options.Value;
+        _userRefreshTokensRepositories = new UserRefreshTokensRepositories(applycationDbContext);
         _applycationDbContext = applycationDbContext;
     }
-    
-    public string GenerateAccessToken(IdentityUser user, IEnumerable<Claim> principal)
+
+    public void AddClaims(IdentityUser user,IEnumerable<Claim> principal)
     {
-        
         var claims = principal.ToList();
         claims.Add(new Claim(ClaimTypes.Name, user.UserName));
+        claims.Add(new Claim("idUser", user.Id));
 
+        _claims = claims;
+    }
+
+    public IEnumerable<Claim> GetClaims()
+    {
+        return _claims;
+    }
+    
+    public string GenerateAccessToken()
+    {
+        var claims = GetClaims();
         var signInKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey));
 
         var jwt = new JwtSecurityToken(
@@ -42,17 +57,18 @@ public class TokenServices : ITokenService
     }
 
     [Obsolete("Obsolete")]
-    public RefreshToken GenerateRefreshToken()
+    public UserRefreshToken GenerateRefreshToken()
     {
         var randomNumber = new byte[32];
         using (var generator = new RNGCryptoServiceProvider())
         {
             generator.GetBytes(randomNumber);
-            return new RefreshToken
+            return new UserRefreshToken
             {
-                Token = Convert.ToBase64String(randomNumber),
-                Expires = DateTime.UtcNow.AddDays(10),
-                Created = DateTime.UtcNow
+                RefreshToken = Convert.ToBase64String(randomNumber),
+                RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(10),
+                RefreshTokenCreatedTime = DateTime.UtcNow,
+                UserId = Guid.Parse(GetClaims().First(t => t.Type == "idUser").Value.ToString())
             };
         }
     }
@@ -76,16 +92,35 @@ public class TokenServices : ITokenService
         return principal;
     }
 
-    public async Task<int> AddRefreshTokensToBase(Guid userId,RefreshToken refreshToken)
+    public async Task<int> AddRefreshTokensToBase(Guid userId,UserRefreshToken? refreshToken)
     {
-         var userRefreshToken = new UserRefreshTokens
+         var userRefreshToken = new UserRefreshToken
             {
                 UserId = userId,
-                RefreshToken = refreshToken.Token,
-                RefreshTokenExpiryTime = refreshToken.Expires,
-                RefreshTokenCreatedTime = refreshToken.Created
+                RefreshToken = refreshToken.RefreshToken,
+                RefreshTokenExpiryTime = refreshToken.RefreshTokenExpiryTime,
+                RefreshTokenCreatedTime = refreshToken.RefreshTokenCreatedTime
             };
             return await _applycationDbContext.SaveChangesAsync();
     }
+
+    public async Task<int> DeleteRefreshTokensToBase(Guid userId,string refreshToken)
+    {
+        var userRefreshToken = new UserRefreshToken
+        {
+            UserId = userId,
+            RefreshToken = refreshToken,
+        };
+
+        _applycationDbContext.UserRefreshTokens.Remove(userRefreshToken);
+        
+        return await _applycationDbContext.SaveChangesAsync();
+    } 
     
+    public async Task<UserRefreshToken> GetRefreshToken(string userId,string refreshToken)
+    {
+        var newRefreshToken = await _userRefreshTokensRepositories.GetUserRefreshToken(userId, refreshToken);
+
+        return newRefreshToken;
+    }
 }

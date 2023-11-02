@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Viking.Models.IdentityModels;
+namespace Viking.Models.Contexts;
 
 public class ApplycationDbContext: DbContext
 {
-    public DbSet<UserRefreshTokens> UserRefreshTokens { get; set; } = null!;
+    public DbSet<UserRefreshToken> UserRefreshTokens { get; set; } = null!;
     
     public ApplycationDbContext(DbContextOptions<ApplycationDbContext> options) : base(options)
     {

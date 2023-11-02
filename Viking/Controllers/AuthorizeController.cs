@@ -3,12 +3,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Security.Claims;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using System.IdentityModel.Tokens.Jwt;
-using Viking.Models.IdentityModels;
-using Viking.Services;
-using Viking.Services.Repositories;
+using Microsoft.AspNetCore.Authorization;
+using Viking.Domain.Models.IdentityModels;
+using Viking.Interfaces;
+using Viking.Models.JWTModels;
 
 namespace Viking.Controllers;
 
@@ -68,12 +66,14 @@ public class AuthorizeController : Controller
             {
                 IEnumerable<Claim> claims = await _userManager.GetClaimsAsync(user);
 
-                var token = _tokenService.GenerateAccessToken(user, claims);
+                _tokenService.AddClaims(user,claims);
+                
+                var token = _tokenService.GenerateAccessToken();
                 var refreshToken = _tokenService.GenerateRefreshToken();
-
+                
                 await _tokenService.AddRefreshTokensToBase(Guid.Parse(user.Id), refreshToken );
                 
-                return Json(new { Token = token, Flag = true });
+                return Json(new { Token = token, Flag = true, refreshToken = refreshToken });
             }
 
             return Json(new { Flag = false, Answer = "Нераспознанная ошибка доступа" });
@@ -106,7 +106,7 @@ public class AuthorizeController : Controller
         [HttpGet("AuthCheck")]
         public JsonResult AuthCheck()
         {
-            if (User.Identity.IsAuthenticated == true)
+            if (User.Identity.IsAuthenticated)
             {
                 return Json(false);
             }
@@ -116,22 +116,17 @@ public class AuthorizeController : Controller
             }
         }
 
-        private string GetToken(IdentityUser user, IEnumerable<Claim> principal)
+        
+        [HttpPost("UpdateRefreshToken")]
+        public async Task<IActionResult> UpdateRefreshToken([FromBody]string refreshToken)
         {
-            var claims = principal.ToList();
-            claims.Add(new Claim(ClaimTypes.Name, user.UserName));
-
-            var signInKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey));
-
-            var Jwt = new JwtSecurityToken(
-                issuer: _options.Issuer,
-                audience: _options.Audience,
-                claims: claims,
-                expires: DateTime.UtcNow.Add(TimeSpan.FromDays(1)),
-                notBefore: DateTime.UtcNow,
-                signingCredentials: new SigningCredentials(signInKey, SecurityAlgorithms.HmacSha256)
-                );
-
-            return new JwtSecurityTokenHandler().WriteToken(Jwt);
+            var idUser = Guid.Parse(this.User.Claims.First(t => t.Type == "idUser").ToString());
+            await _tokenService.DeleteRefreshTokensToBase( idUser, refreshToken.ToString());
+            var newRefeshToken = await _tokenService.GetRefreshToken(idUser.ToString(),refreshToken.ToString());
+            var acessToken = _tokenService.GenerateAccessToken();
+            await _tokenService.AddRefreshTokensToBase(Guid.Parse(this.User.Claims.First(t => t.Type == "idUser").ToString()), newRefeshToken);
+            var tokenApiModel = new TokenApiModel{RefreshToken = refreshToken.ToString(),AccessToken = acessToken};
+            return Json(tokenApiModel);
         }
+        
 }

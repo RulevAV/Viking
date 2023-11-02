@@ -13,3 +13,11 @@ C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\obj\Debug\net7.0\Viking.Inte
 C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\obj\Debug\net7.0\refint\Viking.Interfaces.dll
 C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\obj\Debug\net7.0\Viking.Interfaces.pdb
 C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\obj\Debug\net7.0\ref\Viking.Interfaces.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.Abstractions.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Microsoft.AspNetCore.Http.Abstractions.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Microsoft.AspNetCore.Routing.Abstractions.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\System.IO.Pipelines.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Microsoft.Extensions.Features.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Microsoft.Net.Http.Headers.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Microsoft.AspNetCore.Connections.Abstractions.dll

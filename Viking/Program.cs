@@ -4,10 +4,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Viking;
-using Viking.Models.IdentityModels;
-using Viking.Services;
-using Viking.Services.Repositories;
+using Viking.Interfaces;
+using Viking.Models;
+using Viking.Models.Contexts;
+using Viking.Models.JWTModels;
+using Viking.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,8 +45,9 @@ var audience = builder.Configuration.GetSection("JWTSettings:Audience").Value;
 var signInKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
 
 var connectionStringUsers = builder.Configuration.GetConnectionString("IdentityDB");
+
 builder.Services.AddDbContext<UserDbContext>(options => options.UseNpgsql(connectionStringUsers));
-builder.Services.AddDbContext<ApplycationDbContext>(options => options.UseNpgsql(connectionStringUsers));
+builder.Services.AddDbContext<conViking>(options => options.UseNpgsql(connectionStringUsers));
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(t => { t.Password.RequireNonAlphanumeric = false; }).AddEntityFrameworkStores<UserDbContext>();
 
 builder.Services.Configure<JWTSettings>(builder.Configuration.GetSection("JWTSettings"));
@@ -83,7 +85,11 @@ builder.Services
         options.Cookie.Expiration = TimeSpan.FromDays(1);
         options.ExpireTimeSpan = TimeSpan.FromDays(1);
     });
+
+
+services.AddScoped<IUserRefreshTokens, UserRefreshTokensRepositories>();
 services.AddScoped<ITokenService, TokenServices>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

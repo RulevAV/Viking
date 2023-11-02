@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Viking.Models.IdentityModels;
+namespace Viking.Domain.Models.IdentityModels;
 
 public class OtherParamsUsers : ParamsUsers
 {

@@ -15,3 +15,11 @@ C:\Users\eco\RiderProjects\Viking\Viking.Repositories\obj\Debug\net7.0\Viking.Re
 C:\Users\eco\RiderProjects\Viking\Viking.Repositories\obj\Debug\net7.0\refint\Viking.Repositories.dll
 C:\Users\eco\RiderProjects\Viking\Viking.Repositories\obj\Debug\net7.0\Viking.Repositories.pdb
 C:\Users\eco\RiderProjects\Viking\Viking.Repositories\obj\Debug\net7.0\ref\Viking.Repositories.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Repositories\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.Abstractions.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Repositories\bin\Debug\net7.0\Microsoft.AspNetCore.Http.Abstractions.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Repositories\bin\Debug\net7.0\Microsoft.AspNetCore.Routing.Abstractions.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Repositories\bin\Debug\net7.0\System.IO.Pipelines.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Repositories\bin\Debug\net7.0\Microsoft.Extensions.Features.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Repositories\bin\Debug\net7.0\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Repositories\bin\Debug\net7.0\Microsoft.Net.Http.Headers.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Repositories\bin\Debug\net7.0\Microsoft.AspNetCore.Connections.Abstractions.dll

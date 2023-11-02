@@ -1,4 +1,4 @@
-namespace Viking.Models.IdentityModels;
+namespace Viking.Domain.Models.IdentityModels;
 
 public enum EnumProfession
 {

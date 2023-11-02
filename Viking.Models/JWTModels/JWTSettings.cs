@@ -1,4 +1,4 @@
-namespace Viking;
+namespace Viking.Models.JWTModels;
 
 public class JWTSettings
 {
