@@ -1,0 +1,14 @@
+C:\Users\eco\RiderProjects\Viking\Viking.Models\bin\Debug\net7.0\Viking.Models.deps.json
+C:\Users\eco\RiderProjects\Viking\Viking.Models\bin\Debug\net7.0\Viking.Models.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Models\bin\Debug\net7.0\Viking.Models.pdb
+C:\Users\eco\RiderProjects\Viking\Viking.Models\obj\Debug\net7.0\Viking.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\eco\RiderProjects\Viking\Viking.Models\obj\Debug\net7.0\Viking.Models.AssemblyInfoInputs.cache
+C:\Users\eco\RiderProjects\Viking\Viking.Models\obj\Debug\net7.0\Viking.Models.AssemblyInfo.cs
+C:\Users\eco\RiderProjects\Viking\Viking.Models\obj\Debug\net7.0\Viking.Models.csproj.CoreCompileInputs.cache
+C:\Users\eco\RiderProjects\Viking\Viking.Models\obj\Debug\net7.0\Viking.Models.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Models\obj\Debug\net7.0\refint\Viking.Models.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Models\obj\Debug\net7.0\Viking.Models.pdb
+C:\Users\eco\RiderProjects\Viking\Viking.Models\obj\Debug\net7.0\ref\Viking.Models.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Models\bin\Debug\net7.0\Viking.Models.runtimeconfig.json
+C:\Users\eco\RiderProjects\Viking\Viking.Models\obj\Debug\net7.0\Viking.Models.csproj.AssemblyReference.cache
+C:\Users\eco\RiderProjects\Viking\Viking.Models\obj\Debug\net7.0\Viking.Models.genruntimeconfig.cache
