@@ -14,49 +14,49 @@ namespace Viking.Repositories
         public RExercise(conViking_Sports conVikingSports): base(conVikingSports) {}
         public async Task<int> AddNewExercise(Exercise exercise)
         {
-            await _conVikingSports.Exercises.AddAsync(new Exercise
+            await ConVikingSports.Exercises.AddAsync(new Exercise
             {
                 Id = Guid.NewGuid(),
                 ExercisesName = exercise.ExercisesName,
                 IdWorkout = exercise.IdWorkout
             });
 
-            return await _conVikingSports.SaveChangesAsync();
+            return await ConVikingSports.SaveChangesAsync();
         }
         public async Task<int> DelExercise(Exercise exercise)
         {
-            _conVikingSports.Exercises.Remove(exercise);
-            return await _conVikingSports.SaveChangesAsync();
+            ConVikingSports.Exercises.Remove(exercise);
+            return await ConVikingSports.SaveChangesAsync();
         }
         public async Task<int> DelExercises(List<Exercise> exercises)
         {
-            _conVikingSports.Exercises.RemoveRange(exercises);
-            return await _conVikingSports.SaveChangesAsync();
+            ConVikingSports.Exercises.RemoveRange(exercises);
+            return await ConVikingSports.SaveChangesAsync();
         }
-        public async Task<int> DelExercises(Guid IdWorkout)
+        public async Task<int> DelExercises(Guid idWorkout)
         {
-            var exercises = await GetExercisesByWorkoutId(IdWorkout);
-            _conVikingSports.RemoveRange(exercises);
-            return await _conVikingSports.SaveChangesAsync();
+            var exercises = await GetExercisesByWorkoutId(idWorkout);
+            ConVikingSports.RemoveRange(exercises);
+            return await ConVikingSports.SaveChangesAsync();
         }
         public async Task<int> UpdateExercise(Exercise exercise)
         {
             var oldExercise = await GetExercise(exercise.Id);
             oldExercise = exercise;
-            await _conVikingSports.AddAsync(oldExercise);
-            return await _conVikingSports.SaveChangesAsync();
+            await ConVikingSports.AddAsync(oldExercise);
+            return await ConVikingSports.SaveChangesAsync();
         }
-        public async Task<Exercise> GetExercise(Guid IdExercise)
+        public async Task<Exercise> GetExercise(Guid idExercise)
         {
-            return await _conVikingSports.Exercises.FirstAsync(t => t.Id == IdExercise);
+            return await ConVikingSports.Exercises.FirstAsync(t => t.Id == idExercise);
         }
-        public async Task<List<Exercise>> GetExercisesByWorkoutId(Guid IdExercise)
+        public async Task<List<Exercise>> GetExercisesByWorkoutId(Guid idExercise)
         {
-            return await _conVikingSports.Exercises.Where(t => t.IdWorkout== IdExercise).ToListAsync();
+            return await ConVikingSports.Exercises.Where(t => t.IdWorkout== idExercise).ToListAsync();
         }
-        public async Task<List<Exercise>> GetExercises(Guid IdExercise)
+        public async Task<List<Exercise>> GetExercises(Guid idExercise)
         {
-            return await _conVikingSports.Exercises.Where(t => t.IdWorkout == IdExercise).ToListAsync();
+            return await ConVikingSports.Exercises.Where(t => t.IdWorkout == idExercise).ToListAsync();
         }
     }
 }

@@ -9,11 +9,11 @@ namespace Viking.Repositories
 {
     public class Base
     {
-        public readonly conViking_Sports _conVikingSports;
+        public readonly conViking_Sports ConVikingSports;
 
         public Base(conViking_Sports conVikingSports)
         {
-            _conVikingSports = conVikingSports;
+            ConVikingSports = conVikingSports;
         }
     }
 }

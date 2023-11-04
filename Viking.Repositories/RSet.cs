@@ -14,7 +14,7 @@ namespace Viking.Repositories
         public RSet(conViking_Sports conVikingSports) : base(conVikingSports) { }
         public async Task<int> AddNewSet(Set set)
         {
-            await _conVikingSports.Sets.AddAsync(new Set
+            await ConVikingSports.Sets.AddAsync(new Set
             {
                 Id = Guid.NewGuid(),
                 Number = set.Number,
@@ -24,41 +24,41 @@ namespace Viking.Repositories
                 SetWeight = set.SetWeight
             });
 
-            return await _conVikingSports.SaveChangesAsync();
+            return await ConVikingSports.SaveChangesAsync();
         }
         public async Task<int> DelSet(Set set)
         {
-            _conVikingSports.Remove(set);
-            return await _conVikingSports.SaveChangesAsync();
+            ConVikingSports.Remove(set);
+            return await ConVikingSports.SaveChangesAsync();
         }
-        private async Task<int> DelSets(Guid IdExercise)
+        private async Task<int> DelSets(Guid idExercise)
         {
-            var sets = await GetSet(IdExercise);
-            _conVikingSports.Sets.RemoveRange(sets);
-            return await _conVikingSports.SaveChangesAsync();
+            var sets = await GetSet(idExercise);
+            ConVikingSports.Sets.RemoveRange(sets);
+            return await ConVikingSports.SaveChangesAsync();
         }
         public async Task<int> DelSets(List<Set> sets)
         {
-            _conVikingSports.RemoveRange(sets);
-            return await _conVikingSports.SaveChangesAsync();
+            ConVikingSports.RemoveRange(sets);
+            return await ConVikingSports.SaveChangesAsync();
         }
         public async Task<int> UpdateSet(Set set)
         {
             var oldSet = await GetSet(set.Id);
             oldSet = set;
-            return await _conVikingSports.SaveChangesAsync();
+            return await ConVikingSports.SaveChangesAsync();
         }
-        public async Task<Set> GetSet(Guid IdSet)
+        public async Task<Set> GetSet(Guid idSet)
         {
-            return await _conVikingSports.Sets.FirstAsync(t => t.Id == IdSet);
+            return await ConVikingSports.Sets.FirstAsync(t => t.Id == idSet);
         }
-        public async Task<List<Set>> GetSets(Guid IdExercise)
+        public async Task<List<Set>> GetSets(Guid idExercise)
         {
-            return await _conVikingSports.Sets.Where(t => t.IdExercise == IdExercise).ToListAsync();
+            return await ConVikingSports.Sets.Where(t => t.IdExercise == idExercise).ToListAsync();
         }
-        public async Task<List<Set>> GetSetsByExerciseId(Guid IdExercise)
+        public async Task<List<Set>> GetSetsByExerciseId(Guid idExercise)
         {
-            return await _conVikingSports.Sets.Where(u => u.IdExercise == IdExercise).ToListAsync();
+            return await ConVikingSports.Sets.Where(u => u.IdExercise == idExercise).ToListAsync();
         }
     }
 }
