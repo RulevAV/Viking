@@ -47,7 +47,7 @@ namespace Viking.Repositories
         }
         public async Task<Exercise> GetExercise(Guid IdExercise)
         {
-            return await _conVikingSports.Exercises.FirstAsync(t => t.Id == exerciseId);
+            return await _conVikingSports.Exercises.FirstAsync(t => t.Id == IdExercise);
         }
         public async Task<List<Exercise>> GetExercisesByWorkoutId(Guid IdExercise)
         {
