@@ -61,7 +61,6 @@ public partial class conViking_Sports : DbContext
             entity.ToTable("Workout");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
-            entity.Property(e => e.UserId).HasColumnName(" UserID");
         });
 
         modelBuilder.Entity<WorkoutDictionary>(entity =>

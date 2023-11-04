@@ -18,7 +18,7 @@ namespace Viking.Repositories
             {
                 Id = Guid.NewGuid(),
                 ExercisesName = exercise.ExercisesName,
-                WorkoutId = exercise.WorkoutId
+                IdWorkout = exercise.IdWorkout
             });
 
             return await _conVikingSports.SaveChangesAsync();
@@ -43,6 +43,7 @@ namespace Viking.Repositories
         {
             var oldExercise = await GetExercise(exercise.Id);
             oldExercise = exercise;
+            await _conVikingSports.AddAsync(oldExercise);
             return await _conVikingSports.SaveChangesAsync();
         }
         public async Task<Exercise> GetExercise(Guid IdExercise)
@@ -51,11 +52,11 @@ namespace Viking.Repositories
         }
         public async Task<List<Exercise>> GetExercisesByWorkoutId(Guid IdExercise)
         {
-            return await _conVikingSports.Exercises.Where(t => t.WorkoutId == IdExercise).ToListAsync();
+            return await _conVikingSports.Exercises.Where(t => t.IdWorkout== IdExercise).ToListAsync();
         }
         public async Task<List<Exercise>> GetExercises(Guid IdExercise)
         {
-            return await _conVikingSports.Exercises.Where(t => t.WorkoutId == IdExercise).ToListAsync();
+            return await _conVikingSports.Exercises.Where(t => t.IdWorkout == IdExercise).ToListAsync();
         }
     }
 }

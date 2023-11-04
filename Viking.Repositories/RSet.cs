@@ -18,7 +18,7 @@ namespace Viking.Repositories
             {
                 Id = Guid.NewGuid(),
                 Number = set.Number,
-                ExerciseId = set.ExerciseId,
+                IdExercise= set.IdExercise,
                 LapsTime = set.LapsTime,
                 RepetitionNuber = set.RepetitionNuber,
                 SetWeight = set.SetWeight
@@ -54,11 +54,11 @@ namespace Viking.Repositories
         }
         public async Task<List<Set>> GetSets(Guid IdExercise)
         {
-            return await _conVikingSports.Sets.Where(t => t.ExerciseId == IdExercise).ToListAsync();
+            return await _conVikingSports.Sets.Where(t => t.IdExercise == IdExercise).ToListAsync();
         }
         public async Task<List<Set>> GetSetsByExerciseId(Guid IdExercise)
         {
-            return await _conVikingSports.Sets.Where(u => u.ExerciseId == IdExercise).ToListAsync();
+            return await _conVikingSports.Sets.Where(u => u.IdExercise == IdExercise).ToListAsync();
         }
     }
 }

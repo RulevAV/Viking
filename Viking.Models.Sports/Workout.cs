@@ -7,7 +7,7 @@ public partial class Workout
 {
     public Guid Id { get; set; }
 
-    public Guid UserId { get; set; }
+    public Guid IdUser { get; set; }
 
     public string WorkoutName { get; set; } = null!;
 

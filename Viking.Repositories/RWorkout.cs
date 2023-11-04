@@ -29,6 +29,6 @@ public class RWorkout : Base, IWorkout
     }
     public List<Workout> GetWorkouts(Guid IdUser)
     {
-        return  _conVikingSports.Workouts.Where(t => t.UserId == IdUser).ToList();
+        return  _conVikingSports.Workouts.Where(t => t.IdUser == IdUser).ToList();
     }
 }

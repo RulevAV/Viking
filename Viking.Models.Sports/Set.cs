@@ -7,7 +7,7 @@ public partial class Set
 {
     public Guid Id { get; set; }
 
-    public Guid ExerciseId { get; set; }
+    public Guid IdExercise { get; set; }
 
     public long Number { get; set; }
 
