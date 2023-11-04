@@ -10,7 +10,7 @@
         "dependencies": {
           "System.IdentityModel.Tokens.Jwt": "7.0.3",
           "Viking.Interfaces": "1.0.0",
-          "Viking.Models": "1.0.0",
+          "Viking.Models.Identity": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Abstractions": "7.0.0.0"
         },
         "runtime": {
@@ -288,20 +288,33 @@
       },
       "Viking.Interfaces/1.0.0": {
         "dependencies": {
-          "Viking.Models": "1.0.0"
+          "Viking.Models.Identity": "1.0.0",
+          "Viking.Models.Sports": "1.0.0"
         },
         "runtime": {
           "Viking.Interfaces.dll": {}
         }
       },
-      "Viking.Models/1.0.0": {
+      "Viking.Models.Identity/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.13",
           "Microsoft.EntityFrameworkCore": "7.0.13",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.11"
         },
         "runtime": {
-          "Viking.Models.dll": {}
+          "Viking.Models.Identity.dll": {}
+        }
+      },
+      "Viking.Models.Sports/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.13",
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.13",
+          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.13",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.13",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.11"
+        },
+        "runtime": {
+          "Viking.Models.Sports.dll": {}
         }
       },
       "Microsoft.AspNetCore.Mvc.Abstractions/7.0.0.0": {
@@ -556,7 +569,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Viking.Models/1.0.0": {
+    "Viking.Models.Identity/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Viking.Models.Sports/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

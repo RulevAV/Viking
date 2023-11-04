@@ -8,6 +8,7 @@ using Viking.Interfaces;
 using Viking.Models;
 using Viking.Models.Contexts;
 using Viking.Models.JWTModels;
+using Viking.Models.Sports;
 using Viking.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -89,7 +90,7 @@ builder.Services
     });
 
 
-services.AddScoped<IUserRefreshTokens, UserRefreshTokensRepositories>();
+services.AddScoped<IUserRefreshTokens, RUserRefreshTokens>();
 services.AddScoped<ITokenService, TokenServices>();
 
 var app = builder.Build();

@@ -5,11 +5,11 @@ using Viking.Models.Contexts;
 
 namespace Viking.Repositories;
 
-public class UserRefreshTokensRepositories: IUserRefreshTokens
+public class RUserRefreshTokens: IUserRefreshTokens
 {
     private readonly conViking _applycationDbContext;
     
-    public UserRefreshTokensRepositories(conViking applycationDbContext)
+    public RUserRefreshTokens(conViking applycationDbContext)
     {
         _applycationDbContext = applycationDbContext;
     }

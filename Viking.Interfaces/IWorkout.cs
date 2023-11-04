@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Viking.Models;
+using Viking.Models.Sports;
 
 namespace Viking.Interfaces;
 

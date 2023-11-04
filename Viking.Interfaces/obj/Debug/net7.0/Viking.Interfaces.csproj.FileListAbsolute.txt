@@ -1,8 +1,6 @@
 C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Viking.Interfaces.deps.json
 C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Viking.Interfaces.dll
 C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Viking.Interfaces.pdb
-C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Viking.Models.dll
-C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Viking.Models.pdb
 C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\obj\Debug\net7.0\Viking.Interfaces.csproj.AssemblyReference.cache
 C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\obj\Debug\net7.0\Viking.Interfaces.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\obj\Debug\net7.0\Viking.Interfaces.AssemblyInfoInputs.cache
@@ -21,3 +19,7 @@ C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Microsoft.E
 C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Microsoft.AspNetCore.Http.Features.dll
 C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Microsoft.Net.Http.Headers.dll
 C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Viking.Models.Identity.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Viking.Models.Identity.pdb
+C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Viking.Models.Sports.dll
+C:\Users\eco\RiderProjects\Viking\Viking.Interfaces\bin\Debug\net7.0\Viking.Models.Sports.pdb

@@ -18,13 +18,13 @@ public class TokenServices : ITokenService
 {
     private readonly JWTSettings _options;
     private readonly conViking _applycationDbContext;
-    private readonly UserRefreshTokensRepositories _userRefreshTokensRepositories ;
+    private readonly RUserRefreshTokens _rUserRefreshTokens ;
     private IEnumerable<Claim> _claims;
 
     public TokenServices(IOptions<JWTSettings> options,conViking applycationDbContext)
     {
         _options = options.Value;
-        _userRefreshTokensRepositories = new UserRefreshTokensRepositories(applycationDbContext);
+        _rUserRefreshTokens = new RUserRefreshTokens(applycationDbContext);
         _applycationDbContext = applycationDbContext;
     }
 
@@ -128,7 +128,7 @@ public class TokenServices : ITokenService
     
     public async Task<UserRefreshToken> GetRefreshToken(string userId,string refreshToken)
     {
-        var newRefreshToken = await _userRefreshTokensRepositories.GetUserRefreshToken(userId, refreshToken);
+        var newRefreshToken = await _rUserRefreshTokens.GetUserRefreshToken(userId, refreshToken);
 
         return newRefreshToken;
     }

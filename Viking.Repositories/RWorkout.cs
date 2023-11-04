@@ -3,14 +3,15 @@ using Microsoft.EntityFrameworkCore;
 using Viking.Interfaces;
 using Viking.Models;
 using Viking.Models.Contexts;
+using Viking.Models.Sports;
 
 namespace Viking.Repositories;
 
-public class WorkoutRep : IWorkout
+public class RWorkout : IWorkout
 {
     private readonly conViking_Sports _conVikingSports;
     
-    public WorkoutRep(conViking_Sports conVikingSports)
+    public RWorkout(conViking_Sports conVikingSports)
     {
         _conVikingSports = conVikingSports;
     }

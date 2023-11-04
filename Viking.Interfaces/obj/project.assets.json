@@ -365,6 +365,23 @@
         "runtime": {
           "bin/placeholder/Viking.Models.Identity.dll": {}
         }
+      },
+      "Viking.Models.Sports/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "7.0.13",
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.13",
+          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.13",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.13",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.11"
+        },
+        "compile": {
+          "bin/placeholder/Viking.Models.Sports.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Viking.Models.Sports.dll": {}
+        }
       }
     }
   },
@@ -857,11 +874,17 @@
       "type": "project",
       "path": "../Viking.Models.Identity/Viking.Models.Identity.csproj",
       "msbuildProject": "../Viking.Models.Identity/Viking.Models.Identity.csproj"
+    },
+    "Viking.Models.Sports/1.0.0": {
+      "type": "project",
+      "path": "../Viking.Models.Sports/Viking.Models.Sports.csproj",
+      "msbuildProject": "../Viking.Models.Sports/Viking.Models.Sports.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Viking.Models.Identity >= 1.0.0"
+      "Viking.Models.Identity >= 1.0.0",
+      "Viking.Models.Sports >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -898,6 +921,9 @@
           "projectReferences": {
             "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj": {
               "projectPath": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj"
+            },
+            "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Sports\\Viking.Models.Sports.csproj": {
+              "projectPath": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Sports\\Viking.Models.Sports.csproj"
             }
           }
         }

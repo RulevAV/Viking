@@ -17,6 +17,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Viking.Models.Identity\Viking.Models.Identity.csproj" />
+      <ProjectReference Include="..\Viking.Models.Sports\Viking.Models.Sports.csproj" />
     </ItemGroup>
 
 </Project>
