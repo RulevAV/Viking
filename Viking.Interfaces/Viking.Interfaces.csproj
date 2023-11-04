@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Viking.Models\Viking.Models.csproj" />
+      <ProjectReference Include="..\Viking.Models.Identity\Viking.Models.Identity.csproj" />
     </ItemGroup>
 
 </Project>

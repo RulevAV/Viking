@@ -351,7 +351,7 @@
           }
         }
       },
-      "Viking.Models/1.0.0": {
+      "Viking.Models.Identity/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
@@ -360,10 +360,10 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.11"
         },
         "compile": {
-          "bin/placeholder/Viking.Models.dll": {}
+          "bin/placeholder/Viking.Models.Identity.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Viking.Models.dll": {}
+          "bin/placeholder/Viking.Models.Identity.dll": {}
         }
       }
     }
@@ -853,15 +853,15 @@
         "postgresql.png"
       ]
     },
-    "Viking.Models/1.0.0": {
+    "Viking.Models.Identity/1.0.0": {
       "type": "project",
-      "path": "../Viking.Models/Viking.Models.csproj",
-      "msbuildProject": "../Viking.Models/Viking.Models.csproj"
+      "path": "../Viking.Models.Identity/Viking.Models.Identity.csproj",
+      "msbuildProject": "../Viking.Models.Identity/Viking.Models.Identity.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Viking.Models >= 1.0.0"
+      "Viking.Models.Identity >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -896,8 +896,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models\\Viking.Models.csproj": {
-              "projectPath": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models\\Viking.Models.csproj"
+            "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj": {
+              "projectPath": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj"
             }
           }
         }

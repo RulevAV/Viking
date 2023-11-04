@@ -9,6 +9,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Viking.Interfaces;
 using Viking.Models;
+using Viking.Models.Contexts;
 using Viking.Models.JWTModels;
 
 namespace Viking.Repositories;

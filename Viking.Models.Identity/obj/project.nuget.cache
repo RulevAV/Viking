@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qOhObnuJDZtpq07EWKMn5HdPtnlSc1OXPWNkVp+Jud+Itpdfih0gbiUBJICfM5FvWlOX4L2jwYYd2yie31hcFA==",
+  "dgSpecHash": "hPXHt7xfJM7eQ5BDoi+LYK1GSRBG0G0vHXwB24Ma1CzQcUQ6iV7PzO6QV+B5b7PS5kJ7FvbemT+fsRBpQp7i0g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models\\Viking.Models.csproj",
+  "projectFilePath": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\eco\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\eco\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.13\\microsoft.aspnetcore.cryptography.internal.7.0.13.nupkg.sha512",

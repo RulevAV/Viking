@@ -45,8 +45,10 @@ var audience = builder.Configuration.GetSection("JWTSettings:Audience").Value;
 var signInKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
 
 var connectionStringUsers = builder.Configuration.GetConnectionString("IdentityDB");
+var conStringVikingSports = builder.Configuration.GetConnectionString("Viking_Sports");
 
 builder.Services.AddDbContext<UserDbContext>(options => options.UseNpgsql(connectionStringUsers));
+builder.Services.AddDbContext<conViking_Sports>(options => options.UseNpgsql(conStringVikingSports));
 builder.Services.AddDbContext<conViking>(options => options.UseNpgsql(connectionStringUsers));
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(t => { t.Password.RequireNonAlphanumeric = false; }).AddEntityFrameworkStores<UserDbContext>();
 

@@ -43,7 +43,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Viking.Interfaces\Viking.Interfaces.csproj" />
-    <ProjectReference Include="..\Viking.Models\Viking.Models.csproj" />
+    <ProjectReference Include="..\Viking.Models.Identity\Viking.Models.Identity.csproj" />
     <ProjectReference Include="..\Viking.Repositories\Viking.Repositories.csproj" />
   </ItemGroup>
 

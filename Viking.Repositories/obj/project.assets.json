@@ -433,7 +433,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "Viking.Models": "1.0.0"
+          "Viking.Models.Identity": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Viking.Interfaces.dll": {}
@@ -442,7 +442,7 @@
           "bin/placeholder/Viking.Interfaces.dll": {}
         }
       },
-      "Viking.Models/1.0.0": {
+      "Viking.Models.Identity/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
@@ -451,10 +451,10 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": "7.0.11"
         },
         "compile": {
-          "bin/placeholder/Viking.Models.dll": {}
+          "bin/placeholder/Viking.Models.Identity.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Viking.Models.dll": {}
+          "bin/placeholder/Viking.Models.Identity.dll": {}
         }
       }
     }
@@ -1064,17 +1064,17 @@
       "path": "../Viking.Interfaces/Viking.Interfaces.csproj",
       "msbuildProject": "../Viking.Interfaces/Viking.Interfaces.csproj"
     },
-    "Viking.Models/1.0.0": {
+    "Viking.Models.Identity/1.0.0": {
       "type": "project",
-      "path": "../Viking.Models/Viking.Models.csproj",
-      "msbuildProject": "../Viking.Models/Viking.Models.csproj"
+      "path": "../Viking.Models.Identity/Viking.Models.Identity.csproj",
+      "msbuildProject": "../Viking.Models.Identity/Viking.Models.Identity.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "System.IdentityModel.Tokens.Jwt >= 7.0.3",
       "Viking.Interfaces >= 1.0.0",
-      "Viking.Models >= 1.0.0"
+      "Viking.Models.Identity >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1112,8 +1112,8 @@
             "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Interfaces\\Viking.Interfaces.csproj": {
               "projectPath": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Interfaces\\Viking.Interfaces.csproj"
             },
-            "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models\\Viking.Models.csproj": {
-              "projectPath": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models\\Viking.Models.csproj"
+            "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj": {
+              "projectPath": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj"
             }
           }
         }

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Viking.Interfaces;
 using Viking.Models;
+using Viking.Models.Contexts;
 
 namespace Viking.Repositories;
 

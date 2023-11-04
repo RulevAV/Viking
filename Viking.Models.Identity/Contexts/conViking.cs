@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Viking.Models;
+namespace Viking.Models.Contexts;
 
 public partial class conViking : DbContext
 {

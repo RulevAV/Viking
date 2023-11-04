@@ -5,11 +5,15 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viking", "Viking\Viking.csproj", "{80E40A9D-645C-4FD4-8DCF-1E0586711AEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viking.Models", "Viking.Models\Viking.Models.csproj", "{92CFA1DE-F9B8-43E6-A5F3-0C2CC042E6D6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viking.Models.Identity", "Viking.Models.Identity\Viking.Models.Identity.csproj", "{92CFA1DE-F9B8-43E6-A5F3-0C2CC042E6D6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viking.Repositories", "Viking.Repositories\Viking.Repositories.csproj", "{96CE5794-D3D2-4E05-8906-0136157B3E53}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viking.Interfaces", "Viking.Interfaces\Viking.Interfaces.csproj", "{AA88D664-DB28-424D-B6E2-B579A6BC3199}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viking.Models.Sports", "Viking.Models.Sports\Viking.Models.Sports.csproj", "{70276EB6-BA74-4ACB-8F2C-9F9DAA40DE0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Viking.Models.Base", "Viking.Models.Base\Viking.Models.Base.csproj", "{CB479E6D-AF9F-44E1-BB96-CE91C42198C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{AA88D664-DB28-424D-B6E2-B579A6BC3199}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA88D664-DB28-424D-B6E2-B579A6BC3199}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA88D664-DB28-424D-B6E2-B579A6BC3199}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70276EB6-BA74-4ACB-8F2C-9F9DAA40DE0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70276EB6-BA74-4ACB-8F2C-9F9DAA40DE0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70276EB6-BA74-4ACB-8F2C-9F9DAA40DE0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70276EB6-BA74-4ACB-8F2C-9F9DAA40DE0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB479E6D-AF9F-44E1-BB96-CE91C42198C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB479E6D-AF9F-44E1-BB96-CE91C42198C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB479E6D-AF9F-44E1-BB96-CE91C42198C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB479E6D-AF9F-44E1-BB96-CE91C42198C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
