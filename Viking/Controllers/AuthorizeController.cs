@@ -69,7 +69,7 @@ public class AuthorizeController : Controller
                 _tokenService.AddClaims(user,claims);
                 
                 var token = _tokenService.GenerateAccessToken();
-                var refreshToken = _tokenService.GenerateRefreshToken();
+                var refreshToken = _tokenService.GenerateRefreshToken(Guid.Parse(user.Id));
                 
                 await _tokenService.AddRefreshTokensToBase(Guid.Parse(user.Id), refreshToken );
                 
@@ -116,16 +116,15 @@ public class AuthorizeController : Controller
             }
         }
 
-        
         [HttpPost("UpdateRefreshToken")]
         public async Task<IActionResult> UpdateRefreshToken([FromBody]string refreshToken)
         {
-            var idUser = Guid.Parse(this.User.Claims.First(t => t.Type == "idUser").ToString());
+            var idUser = (await _tokenService.GetUserIdByRefreshToken(refreshToken)).UserId;
             await _tokenService.DeleteRefreshTokensToBase( idUser, refreshToken.ToString());
-            var newRefeshToken = await _tokenService.GetRefreshToken(idUser.ToString(),refreshToken.ToString());
+            var newRefeshToken = _tokenService.GenerateRefreshToken(idUser);
             var acessToken = _tokenService.GenerateAccessToken();
-            await _tokenService.AddRefreshTokensToBase(Guid.Parse(this.User.Claims.First(t => t.Type == "idUser").ToString()), newRefeshToken);
-            var tokenApiModel = new TokenApiModel{RefreshToken = refreshToken.ToString(),AccessToken = acessToken};
+            await _tokenService.AddRefreshTokensToBase(idUser, newRefeshToken);
+            var tokenApiModel = new TokenApiModel{RefreshToken = newRefeshToken.RefreshToken,AccessToken = acessToken};
             return Json(tokenApiModel);
         }
         

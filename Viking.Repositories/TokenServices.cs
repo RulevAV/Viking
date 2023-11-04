@@ -2,7 +2,9 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using System.Linq;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Viking.Interfaces;
@@ -48,7 +50,7 @@ public class TokenServices : ITokenService
             issuer: _options.Issuer,
             audience: _options.Audience,
             claims: claims,
-            expires: DateTime.UtcNow.Add(TimeSpan.FromDays(1)),
+            expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(1)),
             notBefore: DateTime.UtcNow,
             signingCredentials: new SigningCredentials(signInKey, SecurityAlgorithms.HmacSha256)
         );
@@ -57,7 +59,7 @@ public class TokenServices : ITokenService
     }
 
     [Obsolete("Obsolete")]
-    public UserRefreshToken GenerateRefreshToken()
+    public UserRefreshToken GenerateRefreshToken(Guid userId)
     {
         var randomNumber = new byte[32];
         using (var generator = new RNGCryptoServiceProvider())
@@ -68,7 +70,7 @@ public class TokenServices : ITokenService
                 RefreshToken = Convert.ToBase64String(randomNumber),
                 RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(10),
                 RefreshTokenCreatedTime = DateTime.UtcNow,
-                UserId = Guid.Parse(GetClaims().First(t => t.Type == "idUser").Value.ToString())
+                UserId = userId
             };
         }
     }
@@ -96,23 +98,29 @@ public class TokenServices : ITokenService
     {
          var userRefreshToken = new UserRefreshToken
             {
+                Id = Guid.NewGuid(),
                 UserId = userId,
                 RefreshToken = refreshToken.RefreshToken,
                 RefreshTokenExpiryTime = refreshToken.RefreshTokenExpiryTime,
                 RefreshTokenCreatedTime = refreshToken.RefreshTokenCreatedTime
             };
-            return await _applycationDbContext.SaveChangesAsync();
+
+         await _applycationDbContext.UserRefreshTokens.AddAsync(userRefreshToken);
+         return await _applycationDbContext.SaveChangesAsync();
     }
 
+    public async Task<UserRefreshToken> GetUserIdByRefreshToken(string refreshToken)
+    {
+        return await _applycationDbContext.UserRefreshTokens.FirstOrDefaultAsync(t => t.RefreshToken == refreshToken);
+    }
+    
+    
     public async Task<int> DeleteRefreshTokensToBase(Guid userId,string refreshToken)
     {
-        var userRefreshToken = new UserRefreshToken
-        {
-            UserId = userId,
-            RefreshToken = refreshToken,
-        };
+        var userRefreshToken = _applycationDbContext.UserRefreshTokens.FirstOrDefault(t => t.RefreshToken == refreshToken);
 
-        _applycationDbContext.UserRefreshTokens.Remove(userRefreshToken);
+        if (userRefreshToken != null)
+            _applycationDbContext.UserRefreshTokens.Remove(userRefreshToken);
         
         return await _applycationDbContext.SaveChangesAsync();
     } 

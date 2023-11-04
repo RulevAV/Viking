@@ -77,7 +77,7 @@ builder.Services
             ValidateLifetime = true,
             IssuerSigningKey = signInKey,
             ValidateIssuerSigningKey = true,
-            ClockSkew = TimeSpan.FromDays(1)
+            ClockSkew = TimeSpan.FromMinutes(1)
 
         };
     }).AddCookie(options =>
@@ -111,7 +111,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller}/{action=Index}/{id?}");
+    pattern: "{controller}/{action=Index}");
 
 app.MapControllers();
 
