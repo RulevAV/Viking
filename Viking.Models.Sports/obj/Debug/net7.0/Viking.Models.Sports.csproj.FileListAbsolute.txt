@@ -12,3 +12,17 @@ C:\Users\eco\RiderProjects\Viking\Viking.Models.Sports\obj\Debug\net7.0\Viking.M
 C:\Users\eco\RiderProjects\Viking\Viking.Models.Sports\obj\Debug\net7.0\ref\Viking.Models.Sports.dll
 C:\Users\eco\RiderProjects\Viking\Viking.Models.Sports\bin\Debug\net7.0\Viking.Models.Sports.runtimeconfig.json
 C:\Users\eco\RiderProjects\Viking\Viking.Models.Sports\obj\Debug\net7.0\Viking.Models.Sports.genruntimeconfig.cache
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Sports\bin\Debug\net7.0\Viking.Models.Sports.deps.json
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Sports\bin\Debug\net7.0\Viking.Models.Sports.runtimeconfig.json
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Sports\bin\Debug\net7.0\Viking.Models.Sports.dll
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Sports\bin\Debug\net7.0\Viking.Models.Sports.pdb
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Sports\obj\Debug\net7.0\Viking.Models.Sports.csproj.AssemblyReference.cache
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Sports\obj\Debug\net7.0\Viking.Models.Sports.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Sports\obj\Debug\net7.0\Viking.Models.Sports.AssemblyInfoInputs.cache
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Sports\obj\Debug\net7.0\Viking.Models.Sports.AssemblyInfo.cs
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Sports\obj\Debug\net7.0\Viking.Models.Sports.csproj.CoreCompileInputs.cache
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Sports\obj\Debug\net7.0\Viking.Models.Sports.dll
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Sports\obj\Debug\net7.0\refint\Viking.Models.Sports.dll
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Sports\obj\Debug\net7.0\Viking.Models.Sports.pdb
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Sports\obj\Debug\net7.0\Viking.Models.Sports.genruntimeconfig.cache
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Sports\obj\Debug\net7.0\ref\Viking.Models.Sports.dll

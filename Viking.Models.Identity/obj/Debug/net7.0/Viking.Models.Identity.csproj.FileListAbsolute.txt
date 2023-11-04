@@ -12,3 +12,17 @@ C:\Users\eco\RiderProjects\Viking\Viking.Models.Identity\obj\Debug\net7.0\refint
 C:\Users\eco\RiderProjects\Viking\Viking.Models.Identity\obj\Debug\net7.0\Viking.Models.Identity.pdb
 C:\Users\eco\RiderProjects\Viking\Viking.Models.Identity\obj\Debug\net7.0\Viking.Models.Identity.genruntimeconfig.cache
 C:\Users\eco\RiderProjects\Viking\Viking.Models.Identity\obj\Debug\net7.0\ref\Viking.Models.Identity.dll
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Identity\bin\Debug\net7.0\Viking.Models.Identity.deps.json
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Identity\bin\Debug\net7.0\Viking.Models.Identity.runtimeconfig.json
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Identity\bin\Debug\net7.0\Viking.Models.Identity.dll
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Identity\bin\Debug\net7.0\Viking.Models.Identity.pdb
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Identity\obj\Debug\net7.0\Viking.Models.Identity.csproj.AssemblyReference.cache
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Identity\obj\Debug\net7.0\Viking.Models.Identity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Identity\obj\Debug\net7.0\Viking.Models.Identity.AssemblyInfoInputs.cache
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Identity\obj\Debug\net7.0\Viking.Models.Identity.AssemblyInfo.cs
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Identity\obj\Debug\net7.0\Viking.Models.Identity.csproj.CoreCompileInputs.cache
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Identity\obj\Debug\net7.0\Viking.Models.Identity.dll
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Identity\obj\Debug\net7.0\refint\Viking.Models.Identity.dll
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Identity\obj\Debug\net7.0\Viking.Models.Identity.pdb
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Identity\obj\Debug\net7.0\Viking.Models.Identity.genruntimeconfig.cache
+C:\Users\Andrey\Desktop\Viking\Viking.Models.Identity\obj\Debug\net7.0\ref\Viking.Models.Identity.dll

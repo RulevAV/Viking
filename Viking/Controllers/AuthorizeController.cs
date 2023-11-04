@@ -127,5 +127,4 @@ public class AuthorizeController : Controller
             var tokenApiModel = new TokenApiModel{RefreshToken = newRefeshToken.RefreshToken,AccessToken = acessToken};
             return Json(tokenApiModel);
         }
-        
 }
