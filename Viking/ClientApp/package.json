@@ -30,6 +30,9 @@
     "workbox-streams": "^6.5.4"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.7",
+    "@types/react": "^18.2.34",
+    "@types/react-router-dom": "^5.3.3",
     "ajv": "^8.12.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.34.0",
