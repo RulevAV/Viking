@@ -8,24 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a78bdc3b-35e3-4025-9b02-569e447e700e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Viking.Interfaces/IWorkout.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Viking.Repositories/WorkoutRep.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Viking/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Viking/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Models/bin/Debug/net7.0/Viking.Models.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Models/bin/Debug/net7.0/Viking.Models.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Models/bin/Debug/net7.0/Viking.Models.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Models/bin/Debug/net7.0/Viking.Models.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Models/conViking.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Models/Contexts/conViking.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Models/obj/Debug/net7.0/Viking.Models.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Models/obj/Debug/net7.0/Viking.Models.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Models/obj/Debug/net7.0/Viking.Models.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Models/obj/Debug/net7.0/Viking.Models.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Models/obj/Debug/net7.0/Viking.Models.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Models/obj/Debug/net7.0/Viking.Models.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Models/obj/Debug/net7.0/ref/Viking.Models.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Models/obj/Debug/net7.0/ref/Viking.Models.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Models/obj/Debug/net7.0/refint/Viking.Models.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Models/obj/Debug/net7.0/refint/Viking.Models.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/TokenServices.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/TokenServices.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/UserRefreshTokensRepositories.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/UserRefreshTokensRepositories.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Viking/appsettings.json" afterDir="false" />
-    </list>
+    <list default="true" id="a78bdc3b-35e3-4025-9b02-569e447e700e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +40,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/83e91dece2a44ebac8dd1362114111598bced18cf67befa613f34c6abb94e651/IUserStore.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e2e3f232b3f74cfc56d24ec307aaea234eb831ec23796f1b454eb7e8fe1/CallSiteVisitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f91195dc1f983d6ec69125bd192fea551738920a3ae32077f21c5af5b9/UserManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/eco/RiderProjects/Viking/Viking/Controllers/AuthorizeController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Viking.Models.Identity/UserRefreshToken.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -211,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698928811901</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="new base structure">
+      <option name="closed" value="true" />
+      <created>1699106470611</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699106470611</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +226,8 @@
     <MESSAGE value="RefreshTokens" />
     <MESSAGE value="Разнесли модели интерфейсы и репозитории в отдельные проекты" />
     <MESSAGE value="К предыдущему комиту" />
+    <MESSAGE value="new base structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="new base structure" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
