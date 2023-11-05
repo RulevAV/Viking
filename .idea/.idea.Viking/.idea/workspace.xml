@@ -9,19 +9,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a78bdc3b-35e3-4025-9b02-569e447e700e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Viking/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Viking/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Interfaces/IExercise.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/IExercise.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Interfaces/ISet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/ISet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Interfaces/IWorkout.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/IWorkout.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Viking.Interfaces/bin/Debug/net7.0/Viking.Interfaces.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/bin/Debug/net7.0/Viking.Interfaces.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Viking.Interfaces/bin/Debug/net7.0/Viking.Interfaces.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/bin/Debug/net7.0/Viking.Interfaces.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.csproj.AssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/ref/Viking.Interfaces.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/ref/Viking.Interfaces.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/refint/Viking.Interfaces.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/refint/Viking.Interfaces.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/RExercise.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/RExercise.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/RSet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/RSet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/RWorkout.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/RWorkout.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Interfaces.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Interfaces.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Interfaces.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Interfaces.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Repositories.dll" afterDir="false" />
@@ -263,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699157289032</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Реализовал контроллер&#10;Implemented the controller">
+      <option name="closed" value="true" />
+      <created>1699161229931</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699161229931</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,7 +294,8 @@
     <MESSAGE value="small changes" />
     <MESSAGE value="1. Вынес подключения в отдельные функции - Moved connections to separate functions&#10;2. Добавил новый контроллер - Added a new controller&#10;3. Реализовал удаление множества подходов - Implemented removal of many sets" />
     <MESSAGE value="Расписал описание текущих методов&#10;I wrote a description of the current methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Расписал описание текущих методов&#10;I wrote a description of the current methods" />
+    <MESSAGE value="Реализовал контроллер&#10;Implemented the controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Реализовал контроллер&#10;Implemented the controller" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

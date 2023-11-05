@@ -165,6 +165,7 @@ public class VikingSportController : Controller
       }
    }
 
+   [HttpPost("UpdateSet")]
    public async Task<IActionResult> UpdateSet(Set set)
    {
       try
