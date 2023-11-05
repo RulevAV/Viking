@@ -38,15 +38,15 @@ export class FetchData extends Component {
   }
 
   render() {
-    let contents = this.state.loading
-      ? <p><em>Loading...</em></p>
-      : FetchData.renderForecastsTable(this.state.forecasts);
+    // let contents = this.state.loading
+    //   ? <p><em>Loading...</em></p>
+    //   : FetchData.renderForecastsTable(this.state.forecasts);
 
     return (
       <div>
         <h1 id="tableLabel">Weather forecast</h1>
         <p>This component demonstrates fetching data from the server.</p>
-        {contents}
+       999
       </div>
     );
   }

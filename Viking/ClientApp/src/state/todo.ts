@@ -25,7 +25,6 @@ class Todo {
     }
 
     get sum() {
-        console.log("test");
         return this.a + this.b;
     }
 

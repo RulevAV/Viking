@@ -3,9 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Viking.Controllers
 {
-    [Authorize]
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -19,7 +18,7 @@ namespace Viking.Controllers
         {
             _logger = logger;
         }
-
+        [Authorize]
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {

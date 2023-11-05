@@ -2,45 +2,33 @@ import { Route, Routes } from 'react-router-dom';
 import AppRoutes from './AppRoutes';
 import { Layout } from './components/Layout';
 import './custom.css';
-import counter from "./state/counter";
 import {observer} from "mobx-react-lite";
-import Toto from "./components/Todo";
+import PrivateRoute from "./components/privateRoute/PrivateRoute";
+import {useEffect} from "react";
+import authorize from "./state/authorize";
 
 
 const App = observer(()=> {
+    useEffect(()=>{
+        authorize.checkAuthorize();
+    },[]);
+
     return (
         <Layout>
-            {counter.count}
-            <div>
-                <button onClick={()=> counter.incriment()}>+</button>
-                <button onClick={()=> counter.decriment()}>-</button>
-            </div>
-            <Toto/>
             <Routes>
                 {AppRoutes.map((route, index) => {
                     const { element, ...rest } = route;
-                    return <Route key={index} {...rest} element={element} />;
+                    if (!route.isAuthorize){
+                        return <Route key={index} {...rest} element={element} />;
+                    } else {
+                        return <Route key={index} element={<PrivateRoute/>}>
+                            <Route {...rest} element={element} />;
+                        </Route>
+                    }
                 })}
             </Routes>
         </Layout>
     )
 });
 
-// const App = ()=> {
-//     return (
-//         <Layout>
-//             {counter.count}
-//             <div>
-//                 <button onClick={()=> counter.incriment()}>+</button>
-//                 <button onClick={()=> counter.decriment()}>-</button>
-//             </div>
-//             <Routes>
-//                 {AppRoutes.map((route, index) => {
-//                     const { element, ...rest } = route;
-//                     return <Route key={index} {...rest} element={element} />;
-//                 })}
-//             </Routes>
-//         </Layout>
-//     )
-// };
 export default App;

@@ -1,6 +1,7 @@
 import { Counter } from "./components/Counter";
 import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
+import Login from "./components/authorize/login/Login";
 
 const AppRoutes = [
   {
@@ -13,7 +14,11 @@ const AppRoutes = [
   },
   {
     path: '/fetch-data',
-    element: <FetchData />
+    element: <FetchData />,
+    isAuthorize: true
+  },{
+    path: '/login',
+    element: <Login />
   }
 ];
 

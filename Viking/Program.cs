@@ -1,9 +1,13 @@
 
+using System.Net;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Viking.Interfaces;
 using Viking.Models;
 using Viking.Models.Contexts;
@@ -77,9 +81,37 @@ builder.Services
             ValidateLifetime = true,
             IssuerSigningKey = signInKey,
             ValidateIssuerSigningKey = true,
+
             ClockSkew = TimeSpan.FromMinutes(1)
 
         };
+        t.Events = new JwtBearerEvents();
+        t.Events.OnChallenge = context =>
+        {
+            // Skip the default logic.
+            context.HandleResponse();
+
+            var payload = new JObject
+            {
+                ["error"] = context.Error,
+                ["error_description"] = context.ErrorDescription,
+                ["error_uri"] = context.ErrorUri
+            };
+
+            context.Response.ContentType = "application/json";
+            context.Response.StatusCode = 405;
+
+            return context.Response.WriteAsync(payload.ToString());
+        };
+        //t.Events = new JwtBearerEvents()
+        //{
+        //    OnAuthenticationFailed = context =>
+        //    {
+        //        var err = "An error occurred processing your authentication.";
+        //        var result = JsonConvert.SerializeObject(new { err });
+        //        return context.Response.WriteAsync(result);
+        //    }
+        //};
     }).AddCookie(options =>
     {
         options.Cookie.Expiration = TimeSpan.FromDays(1);
