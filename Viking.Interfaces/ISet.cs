@@ -16,18 +16,24 @@ namespace Viking.Interfaces
         /// <param name="set"></param>
         /// <returns></returns>
         public Task<int> DelSet(Set set);
-        /// <summary>
-        /// for del sets after del exercise
-        /// </summary>
-        /// <param name="exerciseId"></param>
-        /// <returns></returns>
-        private Task<int> DelSets(Guid exerciseId)
-        {
-            throw new NotImplementedException();
-        }
+        public Task<int> DelSetsByExerciseId(Guid idExercise);
         public Task<int> DelSets(List<Set> sets);
         public Task<int> UpdateSet(Set set);
-        public Task<Set> GetSet(Guid setId);
-        public Task<List<Set>> GetSetsByExerciseId(Guid exerciseId);
+        public Task<Set> GetSet(Guid idSet);
+        /// <summary>
+        /// Для удаления подходов при удалении одного упражнения
+        /// To delete sets when deleting one exercise
+        /// </summary>
+        /// <param name="idExercise"></param>
+        /// <returns></returns>
+        public Task<List<Set>> GetSetsByExerciseId(Guid idExercise);
+        /// <summary>
+        /// Для удаления подходов при удалении множества упражнений
+        /// To delete sets when deleting many exercises
+        /// </summary>
+        /// <param name="exercises"></param>
+        /// <returns></returns>
+        public Task<List<Set>> GetSetsByExercises(List<Exercise> exercises);
+
     }
 }

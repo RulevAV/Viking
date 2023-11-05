@@ -31,7 +31,7 @@ namespace Viking.Repositories
             ConVikingSports.Remove(set);
             return await ConVikingSports.SaveChangesAsync();
         }
-        private async Task<int> DelSets(Guid idExercise)
+        public async Task<int> DelSetsByExerciseId(Guid idExercise)
         {
             var sets = await GetSet(idExercise);
             ConVikingSports.Sets.RemoveRange(sets);
@@ -59,6 +59,10 @@ namespace Viking.Repositories
         public async Task<List<Set>> GetSetsByExerciseId(Guid idExercise)
         {
             return await ConVikingSports.Sets.Where(u => u.IdExercise == idExercise).ToListAsync();
+        }
+        public async Task<List<Set>> GetSetsByExercises(List<Exercise> exercises)
+        {
+            return await ConVikingSports.Sets.Where(t => exercises.Any(k => k.Id == t.IdExercise)).ToListAsync();
         }
     }
 }

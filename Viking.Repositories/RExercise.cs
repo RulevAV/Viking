@@ -11,7 +11,11 @@ namespace Viking.Repositories
 {
     public class RExercise : Base, IExercise
     {
-        public RExercise(conViking_Sports conVikingSports): base(conVikingSports) {}
+        private readonly RSet _rSet;
+        public RExercise(conViking_Sports conVikingSports): base(conVikingSports)
+        {
+            _rSet = new RSet(conVikingSports);
+        }
         public async Task<int> AddNewExercise(Exercise exercise)
         {
             await ConVikingSports.Exercises.AddAsync(new Exercise
@@ -25,17 +29,20 @@ namespace Viking.Repositories
         }
         public async Task<int> DelExercise(Exercise exercise)
         {
+            await _rSet.DelSetsByExerciseId(exercise.Id);
             ConVikingSports.Exercises.Remove(exercise);
             return await ConVikingSports.SaveChangesAsync();
         }
         public async Task<int> DelExercises(List<Exercise> exercises)
         {
+            await _rSet.DelSets(await _rSet.GetSetsByExercises(exercises));
             ConVikingSports.Exercises.RemoveRange(exercises);
             return await ConVikingSports.SaveChangesAsync();
         }
         public async Task<int> DelExercises(Guid idWorkout)
         {
             var exercises = await GetExercisesByWorkoutId(idWorkout);
+            await _rSet.DelSets(await _rSet.GetSetsByExercises(exercises));
             ConVikingSports.RemoveRange(exercises);
             return await ConVikingSports.SaveChangesAsync();
         }

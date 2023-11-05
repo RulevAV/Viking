@@ -48,10 +48,7 @@ var signInKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
 var connectionStringUsers = builder.Configuration.GetConnectionString("IdentityDB");
 var conStringVikingSports = builder.Configuration.GetConnectionString("Viking_Sports");
 
-builder.Services.AddDbContext<UserDbContext>(options => options.UseNpgsql(connectionStringUsers));
-builder.Services.AddDbContext<conViking_Sports>(options => options.UseNpgsql(conStringVikingSports));
-builder.Services.AddDbContext<conViking>(options => options.UseNpgsql(connectionStringUsers));
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(t => { t.Password.RequireNonAlphanumeric = false; }).AddEntityFrameworkStores<UserDbContext>();
+RegisterDbContexts(builder);
 
 builder.Services.Configure<JWTSettings>(builder.Configuration.GetSection("JWTSettings"));
 
@@ -89,9 +86,8 @@ builder.Services
         options.ExpireTimeSpan = TimeSpan.FromDays(1);
     });
 
+ReposRegister(services);
 
-services.AddScoped<IUserRefreshTokens, RUserRefreshTokens>();
-services.AddScoped<ITokenService, TokenServices>();
 
 var app = builder.Build();
 
@@ -121,3 +117,22 @@ app.MapControllers();
 app.MapFallbackToFile("index.html"); ;
 
 app.Run();
+
+
+void RegisterDbContexts(WebApplicationBuilder builder)
+{
+    builder.Services.AddDbContext<UserDbContext>(options => options.UseNpgsql(connectionStringUsers));
+    builder.Services.AddDbContext<conViking_Sports>(options => options.UseNpgsql(conStringVikingSports));
+    builder.Services.AddDbContext<conViking>(options => options.UseNpgsql(connectionStringUsers));
+    builder.Services.AddIdentity<IdentityUser, IdentityRole>(t => { t.Password.RequireNonAlphanumeric = false; }).AddEntityFrameworkStores<UserDbContext>();
+
+}
+
+void ReposRegister(IServiceCollection services)
+{
+    services.AddScoped<ISet,RSet>();
+    services.AddScoped<IExercise,RExercise>();
+    services.AddScoped<IWorkout,RWorkout>();
+    services.AddScoped<IUserRefreshTokens, RUserRefreshTokens>();
+    services.AddScoped<ITokenService, TokenServices>();
+}

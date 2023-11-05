@@ -6,7 +6,11 @@ namespace Viking.Repositories;
 
 public class RWorkout : Base, IWorkout
 {
-    public RWorkout(conViking_Sports conVikingSports) : base(conVikingSports) { }
+    private readonly RExercise _rExercise;
+    public RWorkout(conViking_Sports conVikingSports) : base(conVikingSports)
+    {
+        _rExercise = new RExercise(conVikingSports);
+    }
     public async Task<int> AddNewWorkout(Workout workout)
     {
         await ConVikingSports.Workouts.AddAsync(workout);
@@ -14,6 +18,7 @@ public class RWorkout : Base, IWorkout
     }
     public async Task<int> DelWorkout(Workout workout)
     {
+        await _rExercise.DelExercises(workout.Id);
         ConVikingSports.Remove(workout);
         return await ConVikingSports.SaveChangesAsync();
     }
