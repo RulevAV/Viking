@@ -1,28 +1,33 @@
 import axios from "axios";
-const rax = require('retry-axios');
+const axiosRetry = require('axios-retry');
+
+
 
 const instance = axios.create({
     baseURL: process.env.REACT_APP_API_ENDPOINT,
     //timeout: 100000,
     headers: {'X-Custom-Header': 'foobar'},
 });
-instance.interceptors.response.use((response) => {
-    return response.data;
-}, (error) => {
-    // whatever you want to do with the error
-    if (error.response.data.error === 'invalid_token') {
-        console.log(error.response.data.error);
-    }
-    return ''
 
+axiosRetry(instance, {
+    retries: 1, // Number of retries
+    retryCondition(error) {
+        console.log("12312321312312312312")
+        // Conditional check the error status code
+        switch (error.response.status) {
+            case 405:
+                return true;
+            default:
+                return false; // Do not retry the others
+        }
+    },
 });
-
 
 //@ts-ignore
 instance.defaults.raxConfig = {
     instance: instance
 };
-const interceptorId = rax.attach(instance);
+
 
 class Base {
     public setBearerToken(token: string){
