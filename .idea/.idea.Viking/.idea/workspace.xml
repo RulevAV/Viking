@@ -13,6 +13,25 @@
       <change beforePath="$PROJECT_DIR$/Viking.Interfaces/IExercise.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/IExercise.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Viking.Interfaces/ISet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/ISet.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Viking.Interfaces/IWorkout.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/IWorkout.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Interfaces/bin/Debug/net7.0/Viking.Interfaces.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/bin/Debug/net7.0/Viking.Interfaces.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Interfaces/bin/Debug/net7.0/Viking.Interfaces.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/bin/Debug/net7.0/Viking.Interfaces.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/ref/Viking.Interfaces.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/ref/Viking.Interfaces.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/refint/Viking.Interfaces.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/refint/Viking.Interfaces.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Repositories/RExercise.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/RExercise.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Repositories/RSet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/RSet.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Repositories/RWorkout.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/RWorkout.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Interfaces.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Interfaces.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Interfaces.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Interfaces.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Repositories.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Repositories.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/ref/Viking.Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/ref/Viking.Repositories.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/refint/Viking.Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/refint/Viking.Repositories.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Viking/Controllers/VikingSportController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking/Controllers/VikingSportController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,7 +255,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699156358932</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Расписал описание текущих методов&#10;I wrote a description of the current methods">
+      <option name="closed" value="true" />
+      <created>1699157289032</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699157289032</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -264,7 +291,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="small changes" />
     <MESSAGE value="1. Вынес подключения в отдельные функции - Moved connections to separate functions&#10;2. Добавил новый контроллер - Added a new controller&#10;3. Реализовал удаление множества подходов - Implemented removal of many sets" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. Вынес подключения в отдельные функции - Moved connections to separate functions&#10;2. Добавил новый контроллер - Added a new controller&#10;3. Реализовал удаление множества подходов - Implemented removal of many sets" />
+    <MESSAGE value="Расписал описание текущих методов&#10;I wrote a description of the current methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="Расписал описание текущих методов&#10;I wrote a description of the current methods" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

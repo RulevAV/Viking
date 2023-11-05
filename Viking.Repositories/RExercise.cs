@@ -27,6 +27,12 @@ namespace Viking.Repositories
 
             return await ConVikingSports.SaveChangesAsync();
         }
+
+        public Exercise CreateExercise(Exercise exercise)
+        {
+            return new Exercise { Id = Guid.NewGuid(),ExercisesName = exercise.ExercisesName, IdWorkout = exercise.IdWorkout};
+        }
+
         public async Task<int> DelExercise(Exercise exercise)
         {
             await _rSet.DelSetsByExerciseId(exercise.Id);
@@ -46,12 +52,13 @@ namespace Viking.Repositories
             ConVikingSports.RemoveRange(exercises);
             return await ConVikingSports.SaveChangesAsync();
         }
-        public async Task<int> UpdateExercise(Exercise exercise)
+        public async Task<Exercise> UpdateExercise(Exercise exercise)
         {
             var oldExercise = await GetExercise(exercise.Id);
             oldExercise = exercise;
             await ConVikingSports.AddAsync(oldExercise);
-            return await ConVikingSports.SaveChangesAsync();
+            await ConVikingSports.SaveChangesAsync();
+            return oldExercise;
         }
         public async Task<Exercise> GetExercise(Guid idExercise)
         {

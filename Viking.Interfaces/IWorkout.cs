@@ -5,12 +5,20 @@ namespace Viking.Interfaces;
 public interface IWorkout
 {
     /// <summary>
-    /// Добавление тренировки
-    /// Adding a Workout
+    /// Добавление тренировки в базу
+    /// Adding a Workout to base
     /// </summary>
     /// <param name="workout"></param>
     /// <returns></returns>
     public Task<int> AddNewWorkout(Workout workout);
+    /// <summary>
+    /// Создание тренировки
+    /// Create workout
+    /// </summary>
+    /// <param name="workout"></param>
+    /// <param name="idUser"></param>
+    /// <returns></returns>
+    public  Workout CreateWorkout(Workout workout, Guid idUser);
     /// <summary>
     /// Удаление тренировки по ее сущности
     /// Deleting a workout by its essence
@@ -24,7 +32,7 @@ public interface IWorkout
     /// </summary>
     /// <param name="workout"></param>
     /// <returns></returns>
-    public Task<int> UpdateWorkout(Workout workout );
+    public Task<Workout> UpdateWorkout(Workout workout );
     /// <summary>
     /// Получение тренировки по ее Id
     /// Receiving training by her ID

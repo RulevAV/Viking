@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices.JavaScript;
 using Microsoft.EntityFrameworkCore;
 using Viking.Interfaces;
 using Viking.Models.Sports;
@@ -16,17 +17,24 @@ public class RWorkout : Base, IWorkout
         await ConVikingSports.Workouts.AddAsync(workout);
         return await ConVikingSports.SaveChangesAsync();
     }
+
+    public Workout CreateWorkout(Workout workout, Guid idUser)
+    {
+        return new Workout {Id = Guid.NewGuid(),IdUser = idUser,WorkoutName = workout.WorkoutName,DateOfWeek = DateOnly.FromDateTime(DateTime.Now)};
+    }
+
     public async Task<int> DelWorkout(Workout workout)
     {
         await _rExercise.DelExercises(workout.Id);
         ConVikingSports.Remove(workout);
         return await ConVikingSports.SaveChangesAsync();
     }
-    public async Task<int> UpdateWorkout(Workout workout)
+    public async Task<Workout> UpdateWorkout(Workout workout)
     {
         var oldWorkout = await GetWorkout(workout.Id);
         oldWorkout = workout;
-        return await ConVikingSports.SaveChangesAsync();
+        await ConVikingSports.SaveChangesAsync();
+        return oldWorkout;
     }
     public async Task<Workout> GetWorkout(Guid IdWorkout)
     {

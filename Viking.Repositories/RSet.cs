@@ -26,6 +26,16 @@ namespace Viking.Repositories
 
             return await ConVikingSports.SaveChangesAsync();
         }
+        public Set CreateNewSet(Set set)
+        {
+            return new Set {Id = Guid.NewGuid(),
+                SetWeight = set.SetWeight,
+                IdExercise = set.IdExercise,
+                LapsTime = set.LapsTime,
+                RepetitionNuber = set.RepetitionNuber,
+                Number = set.Number
+            };
+        }
         public async Task<int> DelSet(Set set)
         {
             ConVikingSports.Remove(set);
@@ -42,11 +52,12 @@ namespace Viking.Repositories
             ConVikingSports.RemoveRange(sets);
             return await ConVikingSports.SaveChangesAsync();
         }
-        public async Task<int> UpdateSet(Set set)
+        public async Task<Set> UpdateSet(Set set)
         {
             var oldSet = await GetSet(set.Id);
             oldSet = set;
-            return await ConVikingSports.SaveChangesAsync();
+            await ConVikingSports.SaveChangesAsync();
+            return oldSet;
         }
         public async Task<Set> GetSet(Guid idSet)
         {

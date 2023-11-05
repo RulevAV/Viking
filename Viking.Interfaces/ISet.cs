@@ -17,6 +17,13 @@ namespace Viking.Interfaces
         /// <returns></returns>
         public Task<int> AddNewSet(Set set);
         /// <summary>
+        /// Создание нового подхода
+        /// Create a new set
+        /// </summary>
+        /// <param name="set"></param>
+        /// <returns></returns>
+        public Set CreateNewSet(Set set);
+        /// <summary>
         /// For del set from base
         /// </summary>
         /// <param name="set"></param>
@@ -42,7 +49,7 @@ namespace Viking.Interfaces
         /// </summary>
         /// <param name="set"></param>
         /// <returns></returns>
-        public Task<int> UpdateSet(Set set);
+        public Task<Set> UpdateSet(Set set);
         /// <summary>
         /// Получение подхода по его id
         /// Getting a set by its id

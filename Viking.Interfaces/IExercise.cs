@@ -17,6 +17,13 @@ namespace Viking.Interfaces
         /// <returns></returns>
         public Task<int> AddNewExercise(Exercise exercise);
         /// <summary>
+        /// Создание тренировки
+        /// Create exercise
+        /// </summary>
+        /// <param name="exercise"></param>
+        /// <returns></returns>
+        public Exercise CreateExercise(Exercise exercise);
+        /// <summary>
         /// Удаление упражнения
         /// for del exercise
         /// </summary>
@@ -36,7 +43,7 @@ namespace Viking.Interfaces
         /// </summary>
         /// <param name="exercise"></param>
         /// <returns></returns>
-        public Task<int> UpdateExercise(Exercise exercise);
+        public Task<Exercise> UpdateExercise(Exercise exercise);
         /// <summary>
         /// Получение упражнения по Id тренировки
         /// Receiving an exercise by workout ID
