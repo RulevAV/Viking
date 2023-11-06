@@ -7,7 +7,7 @@ const PrivateRouteAuth = observer(()=> {
     const location = useLocation(); // получаем текущий маршрут с помощью хука useLocation()
     useEffect(()=>{
         Authorize.isAuthenticated = null;
-        Authorize.checkAuthorize();
+        // Authorize.checkAuthorize();
         return ()=>{
             Authorize.isAuthenticated = null;
         }

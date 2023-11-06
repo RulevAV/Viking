@@ -8,7 +8,7 @@ export interface LoginType {
     remember: boolean
 }
 class Authorize {
-    isAuthenticated = null as null | boolean;
+    isAuthenticated = false as null | boolean;
     loginData = {} as LoginData;
     constructor() {
         makeAutoObservable(this);

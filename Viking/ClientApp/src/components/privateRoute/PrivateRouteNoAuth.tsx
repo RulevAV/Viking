@@ -8,7 +8,7 @@ const PrivateRouteNoAuth = observer(()=> {
 
     useEffect(() => {
         Authorize.isAuthenticated = null;
-        Authorize.checkAuthorize();
+        // Authorize.checkAuthorize();
         return ()=>{
             Authorize.isAuthenticated = null;
         }

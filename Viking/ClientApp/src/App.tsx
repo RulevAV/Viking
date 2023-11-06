@@ -1,39 +1,131 @@
-import { Route, Routes } from 'react-router-dom';
-import AppRoutes from './AppRoutes';
-import Layout  from './components/Layout';
 import './custom.css';
 import {observer} from "mobx-react-lite";
-import PrivateRouteNoAuth from "./components/privateRoute/PrivateRouteNoAuth";
-import {useEffect} from "react";
+import React, {useEffect, useState} from "react";
+import {Layout, Menu, Button, theme} from 'antd';
+import {
+    MenuFoldOutlined,
+    MenuUnfoldOutlined,
+    UploadOutlined,
+    UserOutlined,
+    VideoCameraOutlined,
+    PoweroffOutlined
+} from '@ant-design/icons';
+import {Link, Navigate, Route, Routes, useLocation, useNavigate} from 'react-router-dom';
+import PrivateRouteAuth from './components/privateRoute/PrivateRouteAuth';
+import AppRoutes from './AppRoutes';
+import PrivateRouteNoAuth from './components/privateRoute/PrivateRouteNoAuth';
+import {NavItem, NavLink} from "reactstrap";
 import authorize from "./state/authorize";
-import PrivateRouteAuth from "./components/privateRoute/PrivateRouteAuth";
 
+const {Header, Sider, Content} = Layout;
 
-const App = observer(()=> {
+const App = observer(() => {
+    const navigate = useNavigate();
     useEffect(()=>{
          authorize.checkAuthorize();
     },[]);
-    return (
-        // @ts-ignore
-        <Layout>
-            <Routes>
-                {AppRoutes.map((route, index) => {
-                    const { element, ...rest } = route;
-                    if (route.isAuthorize === undefined){
-                        return  <Route key={index} {...rest} element={element} />;
-                    }
 
-                    if (route.isAuthorize){
-                        return <Route key={index} element={<PrivateRouteAuth/>}>
-                            <Route {...rest} element={element} />;
-                        </Route>
-                    } else {
-                        return <Route key={index} element={<PrivateRouteNoAuth/>}>
-                            <Route  {...rest} element={element} />;
-                        </Route>
-                    }
+    useEffect(()=>{
+        console.log("nen");
+        if(authorize.isAuthenticated === false){
+            navigate('/login');
+        }
+
+    },[authorize.isAuthenticated]);
+    const location = useLocation();
+    const [collapsed, setCollapsed] = useState(false);
+    const {
+        token: {colorBgContainer},
+    } = theme.useToken();
+
+    let tab = AppRoutes.filter(e=>e.type!=="header").map((e,index)=>{
+        return  {
+            key: index,
+            icon: <NavItem>
+                <NavLink tag={Link} to={e.path}>{e.icon}</NavLink>
+            </NavItem>,
+            label: e.name,
+        }
+    })
+
+    if (authorize.isAuthenticated === null){
+      return (<>Loading...</>);
+    }
+
+    if (!authorize.isAuthenticated) {
+        return (<>
+            <Routes>
+                {AppRoutes.filter(e=>e.type==="header").map((route, index) => {
+                    const {element, ...rest} = route;
+                        return <Route key={index}   {...rest} element={element}/>;
                 })}
             </Routes>
+            {/*<Navigate to="/login" state={{from: location}} replace/>*/}
+        </>);
+    }
+        return (
+        <Layout className={"body"}>
+            <Sider trigger={null} collapsible collapsed={collapsed}>
+                <div className="demo-logo-vertical"/>
+                <Menu
+                    theme="dark"
+                    mode="inline"
+                    defaultSelectedKeys={['1']}
+                    items={tab}
+                />
+            </Sider>
+            <Layout>
+                <Header style={{padding: 0, background: colorBgContainer, justifyContent: "space-between", display: "flex"}}>
+                    <Button
+                        type="text"
+                        icon={collapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
+                        onClick={() => setCollapsed(!collapsed)}
+                        style={{
+                            fontSize: '16px',
+                            width: 64,
+                            height: 64,
+                        }}
+                    />
+                    {authorize.isAuthenticated}
+                    <Button
+                        icon={<PoweroffOutlined />}
+                        onClick={()=> authorize.logOut()}
+                        className={"me-2"}
+                        style={{
+                            fontSize: '16px',
+                            width: 64,
+                            height: 64,
+                        }}
+                    />
+                </Header>
+                <Content
+                    style={{
+                        margin: '24px 16px',
+                        padding: 24,
+                        minHeight: 280,
+                        background: colorBgContainer,
+                    }}
+                >
+                    <Routes>
+                        {AppRoutes.filter(e=>e.type!=="header").map((route, index) => {
+                            const {element, ...rest} = route;
+                            if (route.isAuthorize === undefined) {
+                                return <Route key={index} {...rest} element={element}/>;
+                            }
+
+                            if (route.isAuthorize) {
+                                return <Route key={index} element={<PrivateRouteAuth/>}>
+                                    <Route {...rest} element={element}/>;
+                                </Route>
+                            } else {
+                                return <Route key={index} element={<PrivateRouteNoAuth/>}>
+                                    <Route  {...rest} element={element}/>;
+                                </Route>
+                            }
+                        })}
+                        </Routes>
+                </Content>
+            </Layout>
         </Layout>
     )
 });

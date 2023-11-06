@@ -15,6 +15,7 @@ const Layout: FunctionComponent<Props> = ({ title, paragraph, children })=> {
 
     return (
       <div>
+
         <NavMenu />
         <Container tag="main">
           {children}
