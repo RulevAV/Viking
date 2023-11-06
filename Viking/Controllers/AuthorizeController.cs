@@ -7,124 +7,134 @@ using Microsoft.AspNetCore.Authorization;
 using Viking.Domain.Models.IdentityModels;
 using Viking.Interfaces;
 using Viking.Models.JWTModels;
+using Newtonsoft.Json.Linq;
+using Viking.Models;
+using Viking.Models.Sports;
+using Viking.Repositories;
 
 namespace Viking.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class AuthorizeController : Controller
+public class AuthorizeController : BaseController
 {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly JWTSettings _options;
-        private readonly ITokenService _tokenService;
+    private readonly SignInManager<IdentityUser> _signInManager;
+    private readonly JWTSettings _options;
+    private readonly ITokenService _tokenService;
 
-        public AuthorizeController(UserManager<IdentityUser> user, SignInManager<IdentityUser> signIn, IOptions<JWTSettings> options, ITokenService tokenService)
+    public AuthorizeController(UserManager<IdentityUser> user, SignInManager<IdentityUser> signIn, IOptions<JWTSettings> options, ITokenService tokenService) : base(user)
+    {
+        _signInManager = signIn;
+        _options = options.Value;
+        _tokenService = tokenService;
+    }
+
+    [HttpPost("Register")]
+    public async Task<IActionResult> Register([FromBody] ParamsUsers loginDatas)
+    {
+        var user = new IdentityUser { UserName = loginDatas.login };
+        var result = await _userManager.CreateAsync(user, loginDatas.password);
+
+        if (result.Succeeded)
         {
-            _userManager = user;
-            _signInManager = signIn;
-            _options = options.Value;
-            _tokenService = tokenService;
-        }
+            await _signInManager.SignInAsync(user, isPersistent: false);
+            var claims = await SetClaims(user);
+            var token = _tokenService.GenerateAccessToken(claims);
+            var newRefeshToken = _tokenService.GenerateRefreshToken(Guid.Parse(user.Id));
+            var objRefreshToken = new RefreshToken
+            {
+                Token = newRefeshToken.RefreshToken,
+                CreatedTime = newRefeshToken.RefreshTokenCreatedTime,
+                ExpiryTime = newRefeshToken.RefreshTokenExpiryTime
+            };
+            return Json(new TokenApiModel { AccessToken = token, RefreshToken = objRefreshToken });
 
-        [HttpPost("Register")]
-        public async Task<IActionResult> Register([FromBody] ParamsUsers loginDatas)
+        }
+        else
         {
-            var user = new IdentityUser { UserName = loginDatas.login };
-            var result = await _userManager.CreateAsync(user, loginDatas.password);
-
-            if (result.Succeeded)
-            {
-                await _signInManager.SignInAsync(user, isPersistent: false);
-                List<Claim> claims = new List<Claim>();
-                claims.Add(new Claim(ClaimTypes.Name, loginDatas.login));
-
-                await _userManager.AddClaimsAsync(user, claims);
-
-                return Json(new { Flag = true });
-            }
-            else
-            {
-                var Errors = result.Errors;
-                return Json(new { Flag = false, Result = Errors });
-            }
+            var Errors = result.Errors;
+            return Json(new { Flag = false, Result = Errors });
         }
-        [HttpPost("LogIn")]
-        public async Task<IActionResult> LogIn([FromBody] ParamsUsers loginDatas)
+    }
+    [HttpPost("LogIn")]
+    public async Task<IActionResult> LogIn([FromBody] ParamsUsers loginDatas)
+    {
+        var user = await _userManager.FindByNameAsync(loginDatas.login);
+
+        if (user == null)
+            return Json(new { Flag = false, Answer = "Пользователь не найден, проверьте логин или зарегистрируйтесь" });
+
+        var result = await _signInManager.PasswordSignInAsync(user, loginDatas.password, false, false);
+
+        if (!result.Succeeded)
+            return Json(new { Flag = false, Answer = "Доступ закрыт, проверьте правильность ввода пароля или зарегистрируйтесь" });
+
+        if (result.Succeeded)
         {
-            var user = await _userManager.FindByNameAsync(loginDatas.login);
+            var claims = await SetClaims(user);
+            var token = _tokenService.GenerateAccessToken(claims);
+            var newRefeshToken = _tokenService.GenerateRefreshToken(Guid.Parse(user.Id));
 
-            if (user == null)
-                return Json(new { Flag = false, Answer = "Пользователь не найден, проверьте логин или зарегистрируйтесь" });
-            
-            var result = await _signInManager.PasswordSignInAsync(user, loginDatas.password, false, false);
-            
-            if(!result.Succeeded)
-                return Json(new { Flag = false, Answer = "Доступ закрыт, проверьте правильность ввода пароля или зарегистрируйтесь" });
-            
-            if (result.Succeeded)
+            await _tokenService.AddRefreshTokensToBase(Guid.Parse(user.Id), newRefeshToken);
+
+            var objRefreshToken = new RefreshToken
             {
-                IEnumerable<Claim> claims = await _userManager.GetClaimsAsync(user);
+                Token = newRefeshToken.RefreshToken,
+                CreatedTime = newRefeshToken.RefreshTokenCreatedTime,
+                ExpiryTime = newRefeshToken.RefreshTokenExpiryTime
+            };
 
-                _tokenService.AddClaims(user,claims);
-                
-                var token = _tokenService.GenerateAccessToken();
-                var refreshToken = _tokenService.GenerateRefreshToken(Guid.Parse(user.Id));
-                
-                await _tokenService.AddRefreshTokensToBase(Guid.Parse(user.Id), refreshToken );
-                
-                return Json(new { Token = token, Flag = true, refreshToken = refreshToken });
-            }
-
-            return Json(new { Flag = false, Answer = "Нераспознанная ошибка доступа" });
-
+            return Json(new TokenApiModel { AccessToken = token, RefreshToken = objRefreshToken });
         }
 
-        [HttpPost("LogOut")]
-        public async Task<IActionResult> LogOut()
-        { 
-            await _signInManager.SignOutAsync();
-            
-            return Json(null);
+        return Json(new { Flag = false, Answer = "Нераспознанная ошибка доступа" });
 
-        }
-        
-        [HttpGet("AuthorizeCheck")]
-        public JsonResult AuthorizeCheck()
+    }
+    [HttpGet("AuthorizeCheck")]
+    public JsonResult AuthorizeCheck()
+    {
+        return Json(User.Identity.IsAuthenticated);
+    }
+    [HttpPost("UpdateRefreshToken")]
+    public async Task<IActionResult> UpdateRefreshToken([FromBody] TokenApiModel model)
+    {
+        var userRefreshToken = await _tokenService.GetUserIdByRefreshToken(model.RefreshToken.Token);
+        if (userRefreshToken == null) { return BadRequest("Токен не найден"); };
+
+        var user = await _userManager.FindByIdAsync(userRefreshToken.UserId.ToString());
+        if (user == null) { return BadRequest("Пользователь не найден"); };
+
+        var claims = await SetClaims(user);
+
+        await _tokenService.DeleteRefreshTokensToBase(userRefreshToken.UserId, model.RefreshToken.Token);
+        var newRefeshToken = _tokenService.GenerateRefreshToken(userRefreshToken.UserId);
+        var acessToken = _tokenService.GenerateAccessToken(claims);
+        await _tokenService.AddRefreshTokensToBase(userRefreshToken.UserId, newRefeshToken);
+
+        var refreshToken = new RefreshToken
         {
-        
-            if (User.Identity.IsAuthenticated)
-            {
-                return Json(new { Flag = true });
-            }
-            else
-            {
-                return Json(new { Flag = false });
-            }
-        }
+            Token = newRefeshToken.RefreshToken,
+            CreatedTime = newRefeshToken.RefreshTokenCreatedTime,
+            ExpiryTime = newRefeshToken.RefreshTokenExpiryTime
+        };
+        return Json(new TokenApiModel { RefreshToken = refreshToken, AccessToken = acessToken });
+    }
+    [HttpGet("GetUser")]
+    [Authorize]
+    public JsonResult GetUser()
+    {
+        var Name = User.Claims.First(u => u.Type == ClaimTypes.Name).Value;
+        return Json(Name);
+    }
 
-        [HttpGet("AuthCheck")]
-        public JsonResult AuthCheck()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                return Json(false);
-            }
-            else
-            {
-                return Json(new { authorized = true, user = User.Identity.Name });
-            }
-        }
-
-        [HttpPost("UpdateRefreshToken")]
-        public async Task<IActionResult> UpdateRefreshToken([FromBody]string refreshToken)
-        {
-            var idUser = (await _tokenService.GetUserIdByRefreshToken(refreshToken)).UserId;
-            await _tokenService.DeleteRefreshTokensToBase( idUser, refreshToken.ToString());
-            var newRefeshToken = _tokenService.GenerateRefreshToken(idUser);
-            var acessToken = _tokenService.GenerateAccessToken();
-            await _tokenService.AddRefreshTokensToBase(idUser, newRefeshToken);
-            var tokenApiModel = new TokenApiModel{RefreshToken = newRefeshToken.RefreshToken,AccessToken = acessToken};
-            return Json(tokenApiModel);
-        }
+    [HttpPost("LogOut")]
+    [Authorize]
+    public async Task<IActionResult> LogOut([FromBody] TokenApiModel model)
+    {
+        var id = User.Claims.First(u => u.Type == "idUser").Value;
+        var userId = Guid.Parse(id);
+        await _tokenService.DeleteRefreshTokensToBase(userId, model.RefreshToken.Token);
+        await _signInManager.SignOutAsync();
+        return Json(null);
+    }
 }

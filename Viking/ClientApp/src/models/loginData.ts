@@ -1,7 +1,8 @@
-import UserRefreshToken from "./UserRefreshToken";
+import RefreshToken from "./RefreshToken";
+import AccessToken from "./AccessToken";
 
 export default interface LoginData {
-  token: string,
+  accessToken: AccessToken,
   flag: boolean,
-  refreshToken: UserRefreshToken
+  refreshToken: RefreshToken
 }

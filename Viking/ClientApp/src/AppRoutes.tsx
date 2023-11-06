@@ -18,7 +18,8 @@ const AppRoutes = [
     isAuthorize: true
   },{
     path: '/login',
-    element: <Login />
+    element: <Login />,
+    isAuthorize: false
   }
 ];
 

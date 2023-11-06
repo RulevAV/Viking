@@ -28,35 +28,31 @@ public class TokenServices : ITokenService
         _applycationDbContext = applycationDbContext;
     }
 
-    public void AddClaims(IdentityUser user,IEnumerable<Claim> principal)
-    {
-        var claims = principal.ToList();
-        claims.Add(new Claim(ClaimTypes.Name, user.UserName));
-        claims.Add(new Claim("idUser", user.Id));
-
-        _claims = claims;
-    }
-
     public IEnumerable<Claim> GetClaims()
     {
         return _claims;
     }
     
-    public string GenerateAccessToken()
+    public AccessToken GenerateAccessToken(List<Claim> claims)
     {
-        var claims = GetClaims();
         var signInKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_options.SecretKey));
-
+        var expires = DateTime.UtcNow.Add(TimeSpan.FromMinutes(1));
+        var notBefore = DateTime.UtcNow;
         var jwt = new JwtSecurityToken(
             issuer: _options.Issuer,
             audience: _options.Audience,
             claims: claims,
-            expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(1)),
-            notBefore: DateTime.UtcNow,
+            expires: expires,
+            notBefore: notBefore,
             signingCredentials: new SigningCredentials(signInKey, SecurityAlgorithms.HmacSha256)
         );
-
-        return new JwtSecurityTokenHandler().WriteToken(jwt);
+        var ObjAccessToken = new AccessToken
+        {
+            Token = new JwtSecurityTokenHandler().WriteToken(jwt),
+            ExpiryTime = expires,
+            CreatedTime = notBefore
+        };
+        return ObjAccessToken;
     }
 
     [Obsolete("Obsolete")]

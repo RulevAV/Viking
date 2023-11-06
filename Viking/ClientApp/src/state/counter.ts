@@ -4,9 +4,10 @@ import LoginData from "../models/loginData";
 
 class Counter {
     count = 0;
-    data: LoginData;
+    data: LoginData | null ;
     constructor() {
         makeAutoObservable(this);
+        this.data = null;
     }
     incriment(){
         this.count = this.count + 1;

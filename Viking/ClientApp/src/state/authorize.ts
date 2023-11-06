@@ -8,17 +8,14 @@ export interface LoginType {
     remember: boolean
 }
 class Authorize {
-    isAuthenticated = false;
+    isAuthenticated = null as null | boolean;
     loginData = {} as LoginData;
     constructor() {
         makeAutoObservable(this);
     }
     async checkAuthorize(){
-
-
        return AuthorizeServise.checkAuthorize().then(res=>{
             this.isAuthenticated = res;
-           console.log(res);
         });
     }
     async login(data: LoginType){
@@ -30,7 +27,11 @@ class Authorize {
     }
 
     async test(){
-        return AuthorizeServise.test();
+        return AuthorizeServise.getUser();
+    }
+    async logOut(){
+        this.isAuthenticated = false;
+        return AuthorizeServise.logOut();
     }
 }
 

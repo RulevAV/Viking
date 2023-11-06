@@ -10,13 +10,13 @@ class Todo {
         makeAutoObservable(this);
     }
 
-    addTodo(todo){
+    addTodo(todo: any){
         this.todos.push(todo);
     }
-    removeTodo(id){
+    removeTodo(id: any){
         this.todos = this.todos.filter(u=>u.id !== id);
     }
-    complateTodo(id){
+    complateTodo(id: any){
         this.todos.forEach(u=> {
             if (u.id === id) {
                 u.complate =  !u.complate;

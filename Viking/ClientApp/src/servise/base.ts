@@ -1,51 +1,41 @@
 import axios from "axios";
 const axiosRetry = require('axios-retry');
 
-
-
 const instance = axios.create({
     baseURL: process.env.REACT_APP_API_ENDPOINT,
     //timeout: 100000,
     headers: {'X-Custom-Header': 'foobar'},
 });
-
+instance.interceptors.request.use(
+    config => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    error => Promise.reject(error)
+);
 axiosRetry(instance, {
     retries: 1, // Number of retries
-    retryCondition(error) {
-        console.log("12312321312312312312")
-        // Conditional check the error status code
-        switch (error.response.status) {
-            case 405:
-                return true;
+    retryCondition: async (error : any) => {
+        switch (error.response.data.error) {
+            case 'invalid_token':
+                return await base.updateBearerToken();
             default:
                 return false; // Do not retry the others
         }
     },
 });
-
-//@ts-ignore
-instance.defaults.raxConfig = {
-    instance: instance
-};
-
-
 class Base {
-    public setBearerToken(token: string){
-        instance.defaults.headers.common["Authorization"] = `bearer ${token}`;
+    public async updateBearerToken(){
+        return false;
     }
-
-    requare = null;
-
-    fnRequare(){
-    }
-
     public async get<T>(url: string) {
-        var fnGet = instance.get<T>;
-
-        return await fnGet(url).then(res=>{
+        return await instance.get<T>(url).then(res=>{
             return res.data
         }).catch(err =>{
-            axios.post("")
+            return ""
         });
     }
     public async post<T>(url: string, data: any){

@@ -1,18 +1,26 @@
-import React, { Component } from 'react';
+import {FunctionComponent, useEffect} from 'react';
 import { Container } from 'reactstrap';
 import { NavMenu } from './NavMenu';
 
-export class Layout extends Component {
-  static displayName = Layout.name;
 
-  render() {
+type Props = {
+    title: string,
+    paragraph: string,
+    children: any
+}
+const Layout: FunctionComponent<Props> = ({ title, paragraph, children })=> {
+    useEffect(()=>{
+       // authorize.checkAuthorize();
+    },[]);
+
     return (
       <div>
         <NavMenu />
         <Container tag="main">
-          {this.props.children}
+          {children}
         </Container>
       </div>
     );
-  }
-}
+};
+
+export default Layout;
