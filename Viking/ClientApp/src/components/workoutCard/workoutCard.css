@@ -1,0 +1,13 @@
+.workoutCard{
+    width: 750px;
+    min-height: 500px;
+    display: grid;
+    background-color: lavender;
+    float: left;
+    margin: 5px;
+}
+
+.workoutCard-headerTitle{
+    display: flex;
+    justify-content: space-evenly;
+}

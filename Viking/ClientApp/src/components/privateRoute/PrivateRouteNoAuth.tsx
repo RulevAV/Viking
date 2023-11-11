@@ -5,7 +5,7 @@ import {useEffect} from "react";
 
 const PrivateRouteNoAuth = observer(()=> {
     const location = useLocation(); // получаем текущий маршрут с помощью хука useLocation()
-
+    console.log("no authorize")
     useEffect(() => {
         Authorize.isAuthenticated = null;
         // Authorize.checkAuthorize();
@@ -16,7 +16,7 @@ const PrivateRouteNoAuth = observer(()=> {
     if (Authorize.isAuthenticated === null) {
         return (<>Loading...</>);
     }
-    if (Authorize.isAuthenticated === true) {
+    if (Authorize.isAuthenticated) {
         return (<Navigate to="/" state={{from: location}} replace/>);
     }
 

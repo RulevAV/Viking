@@ -1,4 +1,4 @@
-import { Counter } from "./components/Counter";
+import  Trains  from "./components/Trains";
 import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
 import Login from "./components/authorize/login/Login";
@@ -9,16 +9,17 @@ const AppRoutes = [
   {
     index: true,
     element: <Home />,
+    isAuthorize: true,
     icon:<UserOutlined/>,
     name:'Home',
     path: '/',
   },
   {
-    path: '/counter',
-    element: <Counter />,
+    path: '/Trains',
+    element: <Trains />,
+    isAuthorize: true,
     icon:<VideoCameraOutlined/>,
-    name:'Counter'
-
+    name:'Тренировки'
   },
   {
     path: '/fetch-data',

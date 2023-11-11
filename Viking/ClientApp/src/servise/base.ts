@@ -45,15 +45,15 @@ class Base {
             return ""
         });
     }
-    public async delete(url: string){
-        return await instance.delete(url).then(res=>{
+    public async delete<T>(url: string){
+        return await instance.delete<T>(url).then(res=>{
             return res.data
         }).catch(err =>{
             return ""
         });
     }
-    public async put(url: string, data: any){
-        return await instance.put(url, data).then(res=>{
+    public async put<T>(url: string, data: any){
+        return await instance.put<T>(url, data).then(res=>{
             return res.data
         }).catch(err =>{
             return ""

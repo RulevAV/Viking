@@ -8,7 +8,7 @@ import {
     UploadOutlined,
     UserOutlined,
     VideoCameraOutlined,
-    PoweroffOutlined
+    PoweroffOutlined, PlusCircleFilled
 } from '@ant-design/icons';
 import {Link, Navigate, Route, Routes, useLocation, useNavigate} from 'react-router-dom';
 import PrivateRouteAuth from './components/privateRoute/PrivateRouteAuth';
@@ -16,30 +16,35 @@ import AppRoutes from './AppRoutes';
 import PrivateRouteNoAuth from './components/privateRoute/PrivateRouteNoAuth';
 import {NavItem, NavLink} from "reactstrap";
 import authorize from "./state/authorize";
+import workout from "./state/workout";
 
 const {Header, Sider, Content} = Layout;
 
 const App = observer(() => {
     const navigate = useNavigate();
-    useEffect(()=>{
-         authorize.checkAuthorize();
-    },[]);
+    useEffect(() => {
+        authorize.checkAuthorize();
+    }, []);
 
-    useEffect(()=>{
-        console.log("nen");
-        if(authorize.isAuthenticated === false){
+    useEffect(() => {
+        if (authorize.isAuthenticated === false) {
             navigate('/login');
+        } else {
+            navigate('/Trains')
         }
 
-    },[authorize.isAuthenticated]);
+    }, [authorize.isAuthenticated]);
     const location = useLocation();
+    let path = location.pathname
+    let curPath = null
+    AppRoutes.filter(t => t.isAuthorize).forEach((u, index) => path === u.path ? curPath = index : null);
     const [collapsed, setCollapsed] = useState(false);
     const {
         token: {colorBgContainer},
     } = theme.useToken();
 
-    let tab = AppRoutes.filter(e=>e.type!=="header").map((e,index)=>{
-        return  {
+    let tab = AppRoutes.filter(e => e.type !== "header").map((e, index) => {
+        return {
             key: index,
             icon: <NavItem>
                 <NavLink tag={Link} to={e.path}>{e.icon}</NavLink>
@@ -48,48 +53,61 @@ const App = observer(() => {
         }
     })
 
-    if (authorize.isAuthenticated === null){
-      return (<>Loading...</>);
+    if (authorize.isAuthenticated === null) {
+        return (<>Loading...</>);
     }
 
     if (!authorize.isAuthenticated) {
         return (<>
             <Routes>
-                {AppRoutes.filter(e=>e.type==="header").map((route, index) => {
+                {AppRoutes.filter(e => e.type === "header").map((route, index) => {
                     const {element, ...rest} = route;
-                        return <Route key={index}   {...rest} element={element}/>;
+                    return <Route key={index}   {...rest} element={element}/>;
                 })}
             </Routes>
-            {/*<Navigate to="/login" state={{from: location}} replace/>*/}
         </>);
     }
-        return (
+
+    return (
         <Layout className={"body"}>
             <Sider trigger={null} collapsible collapsed={collapsed}>
                 <div className="demo-logo-vertical"/>
                 <Menu
                     theme="dark"
                     mode="inline"
-                    defaultSelectedKeys={['1']}
+                    selectedKeys={['' + curPath]}
                     items={tab}
                 />
             </Sider>
             <Layout>
-                <Header style={{padding: 0, background: colorBgContainer, justifyContent: "space-between", display: "flex"}}>
+                <Header style={{
+                    padding: 0,
+                    background: colorBgContainer,
+                    justifyContent: "space-between",
+                    display: "flex"
+                }}>
+                    <div>
+                        <Button
+                            type="text"
+                            icon={collapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
+                            onClick={() => setCollapsed(!collapsed)}
+                            style={{
+                                fontSize: '16px',
+                                width: 64,
+                                height: 64,
+                            }}
+                        />
+                        <Button
+                            type='text'
+                            icon={<PlusCircleFilled/>}
+                            title='Добавить тренеровку'
+                            onClick={() => workout.createNewWorkout('Новая тренировка')}
+                        >
+                        </Button>
+                    </div>
                     <Button
-                        type="text"
-                        icon={collapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
-                        onClick={() => setCollapsed(!collapsed)}
-                        style={{
-                            fontSize: '16px',
-                            width: 64,
-                            height: 64,
-                        }}
-                    />
-                    {authorize.isAuthenticated}
-                    <Button
-                        icon={<PoweroffOutlined />}
-                        onClick={()=> authorize.logOut()}
+                        icon={<PoweroffOutlined/>}
+                        onClick={() => authorize.logOut()}
                         className={"me-2"}
                         style={{
                             fontSize: '16px',
@@ -107,7 +125,7 @@ const App = observer(() => {
                     }}
                 >
                     <Routes>
-                        {AppRoutes.filter(e=>e.type!=="header").map((route, index) => {
+                        {AppRoutes.filter(e => e.type !== "header").map((route, index) => {
                             const {element, ...rest} = route;
                             if (route.isAuthorize === undefined) {
                                 return <Route key={index} {...rest} element={element}/>;
@@ -115,7 +133,7 @@ const App = observer(() => {
 
                             if (route.isAuthorize) {
                                 return <Route key={index} element={<PrivateRouteAuth/>}>
-                                    <Route {...rest} element={element}/>;
+                                    <Route  {...rest} element={element}/>;
                                 </Route>
                             } else {
                                 return <Route key={index} element={<PrivateRouteNoAuth/>}>
@@ -123,7 +141,7 @@ const App = observer(() => {
                                 </Route>
                             }
                         })}
-                        </Routes>
+                    </Routes>
                 </Content>
             </Layout>
         </Layout>
