@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_06_11_2023_17_27_[Changes]" date="1699266425909" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/.idea.Viking/.idea/shelf/Uncommitted_changes_before_Update_at_06_11_2023_17_27_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 06.11.2023 17:27 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.csproj.AssemblyReference.cache" />
+    <option name="AFTER_PATH" value="Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.csproj.AssemblyReference.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Viking/.idea/shelf/Uncommitted_changes_before_Update_at_06_11_2023_17_27_[Changes]/Viking.Interfaces.csproj.AssemblyReference.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.csproj.AssemblyReference.cache" />
+    <option name="AFTER_PATH" value="Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.csproj.AssemblyReference.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Viking/.idea/shelf/Uncommitted_changes_before_Update_at_06_11_2023_17_27_[Changes]/Viking.Repositories.csproj.AssemblyReference.cache" />
+  </binary>
+</changelist>

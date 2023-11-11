@@ -1,0 +1,49 @@
+<changelist name="Uncommitted_changes_before_Update_at_11_11_2023_13_42_[Changes]1" date="1699684938379" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/.idea.Viking/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2023_13_42_[Changes]1/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 11.11.2023 13:42 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.assets.cache" />
+    <option name="AFTER_PATH" value="Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.assets.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Viking/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2023_13_42_[Changes]1/Viking.Interfaces.assets.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Viking.Models.Identity/obj/Debug/net7.0/Viking.Models.Identity.assets.cache" />
+    <option name="AFTER_PATH" value="Viking.Models.Identity/obj/Debug/net7.0/Viking.Models.Identity.assets.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Viking/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2023_13_42_[Changes]1/Viking.Models.Identity.assets.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.assets.cache" />
+    <option name="AFTER_PATH" value="Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.assets.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Viking/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2023_13_42_[Changes]1/Viking.Repositories.assets.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Viking.Models.Sports/obj/Debug/net7.0/Viking.Models.Sports.assets.cache" />
+    <option name="AFTER_PATH" value="Viking.Models.Sports/obj/Debug/net7.0/Viking.Models.Sports.assets.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Viking/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2023_13_42_[Changes]1/Viking.Models.Sports.assets.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Viking.Models.Identity/obj/Debug/net7.0/Viking.Models.Identity.csproj.AssemblyReference.cache" />
+    <option name="AFTER_PATH" value="Viking.Models.Identity/obj/Debug/net7.0/Viking.Models.Identity.csproj.AssemblyReference.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Viking/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2023_13_42_[Changes]1/Viking.Models.Identity.csproj.AssemblyReference.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Viking.Models.Identity/obj/project.nuget.cache" />
+    <option name="AFTER_PATH" value="Viking.Models.Identity/obj/project.nuget.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Viking/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2023_13_42_[Changes]1/project.nuget.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.csproj.AssemblyReference.cache" />
+    <option name="AFTER_PATH" value="Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.csproj.AssemblyReference.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Viking/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2023_13_42_[Changes]1/Viking.Repositories.csproj.AssemblyReference.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.csproj.AssemblyReference.cache" />
+    <option name="AFTER_PATH" value="Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.csproj.AssemblyReference.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Viking/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2023_13_42_[Changes]1/Viking.Interfaces.csproj.AssemblyReference.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Viking.Models.Sports/obj/Debug/net7.0/Viking.Models.Sports.csproj.AssemblyReference.cache" />
+    <option name="AFTER_PATH" value="Viking.Models.Sports/obj/Debug/net7.0/Viking.Models.Sports.csproj.AssemblyReference.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Viking/.idea/shelf/Uncommitted_changes_before_Update_at_11_11_2023_13_42_[Changes]1/Viking.Models.Sports.csproj.AssemblyReference.cache" />
+  </binary>
+</changelist>
