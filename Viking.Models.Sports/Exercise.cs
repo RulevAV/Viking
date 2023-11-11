@@ -9,5 +9,7 @@ public partial class Exercise
 
     public Guid IdWorkout { get; set; }
 
-    public string ExercisesName { get; set; } = null!;
+    public string ExerciseName { get; set; } = null!;
+
+    public virtual Workout IdWorkoutNavigation { get; set; } = null!;
 }

@@ -39,7 +39,9 @@ builder.Services.AddCors(options =>
 
 // Add services to the container.
 
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
 
 var services = builder.Services;
 
@@ -120,7 +122,7 @@ builder.Services
 
 ReposRegister(services);
 
-
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -157,7 +159,6 @@ void RegisterDbContexts(WebApplicationBuilder builder)
     builder.Services.AddDbContext<conViking_Sports>(options => options.UseNpgsql(conStringVikingSports));
     builder.Services.AddDbContext<conViking>(options => options.UseNpgsql(connectionStringUsers));
     builder.Services.AddIdentity<IdentityUser, IdentityRole>(t => { t.Password.RequireNonAlphanumeric = false; }).AddEntityFrameworkStores<UserDbContext>();
-
 }
 
 void ReposRegister(IServiceCollection services)

@@ -21,7 +21,7 @@ namespace Viking.Repositories
             await ConVikingSports.Exercises.AddAsync(new Exercise
             {
                 Id = Guid.NewGuid(),
-                ExercisesName = exercise.ExercisesName,
+                ExerciseName = exercise.ExerciseName,
                 IdWorkout = exercise.IdWorkout
             });
 
@@ -30,7 +30,7 @@ namespace Viking.Repositories
 
         public Exercise CreateExercise(Exercise exercise)
         {
-            return new Exercise { Id = Guid.NewGuid(),ExercisesName = exercise.ExercisesName, IdWorkout = exercise.IdWorkout};
+            return new Exercise { Id = Guid.NewGuid(),ExerciseName = exercise.ExerciseName, IdWorkout = exercise.IdWorkout};
         }
 
         public async Task<int> DelExercise(Exercise exercise)

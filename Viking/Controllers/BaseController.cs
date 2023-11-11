@@ -21,5 +21,11 @@ namespace Viking.Controllers
             claims.Add(new Claim("idUser", user.Id));
             return claims;
         }
+
+        [HttpGet("Test")]
+        public async Task<IActionResult> Test()
+        {
+            return Ok();
+        }
     }
 }

@@ -11,5 +11,7 @@ public partial class Workout
 
     public string WorkoutName { get; set; } = null!;
 
-    public DateOnly DateOfWeek { get; set; }
+    public DateTime DateOfWeek { get; set; }
+
+    public virtual ICollection<Exercise> Exercises { get; set; } = new List<Exercise>();
 }

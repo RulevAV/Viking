@@ -46,5 +46,5 @@ public interface IWorkout
     /// </summary>
     /// <param name="userId"></param>
     /// <returns></returns>
-    public List<Workout> GetWorkouts(Guid userId );
+    public Task<List<Workout>> GetWorkouts(Guid userId );
 }
