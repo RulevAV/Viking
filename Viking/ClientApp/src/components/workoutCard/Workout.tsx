@@ -6,28 +6,13 @@ import {EditFilled, DeleteFilled, PlusCircleFilled} from "@ant-design/icons";
 import dayjs from "dayjs";
 import workout from "../../state/workout";
 import exercise from "../../state/exercise";
-
-
-// const tabList = [
-//     {
-//         key: 'tab1',
-//         tab: 'tab1',
-//     },
-//     {
-//         key: 'tab2',
-//         tab: 'tab2',
-//     },
-// ];
+import Exercise from "../exercise/Exersice";
 
 
 interface workoutPropsType {
     title: string,
     id: string,
     tabs: { key: string, tab: string }[]
-}
-
-interface tmp {
-    key: any
 }
 
 const Workout: React.FC<workoutPropsType> = observer(({title, id, tabs}) => {
@@ -38,26 +23,8 @@ const Workout: React.FC<workoutPropsType> = observer(({title, id, tabs}) => {
     let data = new Date();
     let dateFormat = 'DD.MM.YYYY';
 
-    const addExercise = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-        exercise.createNewExercise(id, 'Новое упражнение').then(t => {
-
-            workout.workouts = workout.workouts.map(w =>{
-                if(t.idWorkout !== w.id){
-                    return w;
-                }else {
-                    return {
-                        ...w,
-                        exercises:[...w.exercises,t]
-                    }
-                }
-            })
-        })
-    }
-
     tabs.forEach((t, index) => {
-
-        // @ts-ignore
-        contentList[t.key] = <p>content{t.key}</p>
+        contentList[t.key] =  <Exercise id={t.key} name={t.tab}/>
     })
     const onTab1Change = (key: string) => {
         setActiveTabKey1(key);
@@ -94,7 +61,7 @@ const Workout: React.FC<workoutPropsType> = observer(({title, id, tabs}) => {
                         size={"large"}
                         icon={<PlusCircleFilled/>}
                         title='Добавить упражнение'
-                        onClick={(e) => addExercise(e)}
+                        onClick={(e) => exercise.createNewExercise(id, 'Новое упражнение')}
                         className='bg-success text-black-50'>
 
                     </Button>

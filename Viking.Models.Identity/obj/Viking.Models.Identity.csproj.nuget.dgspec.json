@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj": {}
+    "C:\\Users\\Andrey\\Desktop\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj": {
+    "C:\\Users\\Andrey\\Desktop\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj",
+        "projectUniqueName": "C:\\Users\\Andrey\\Desktop\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj",
         "projectName": "Viking.Models.Identity",
-        "projectPath": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj",
-        "packagesPath": "C:\\Users\\eco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Identity\\obj\\",
+        "projectPath": "C:\\Users\\Andrey\\Desktop\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj",
+        "packagesPath": "C:\\Users\\Andrey\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Andrey\\Desktop\\Viking\\Viking.Models.Identity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\eco\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Andrey\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -85,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
         }
       }
     }

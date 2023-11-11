@@ -16,4 +16,6 @@ public partial class Set
     public short? RepetitionNuber { get; set; }
 
     public long? LapsTime { get; set; }
+
+    public virtual Exercise IdExerciseNavigation { get; set; } = null!;
 }

@@ -57,6 +57,11 @@ public partial class conViking_Sports : DbContext
             entity.HasKey(e => e.Id).HasName("Sets_pkey");
 
             entity.Property(e => e.Id).ValueGeneratedNever();
+
+            entity.HasOne(d => d.IdExerciseNavigation).WithMany(p => p.Sets)
+                .HasForeignKey(d => d.IdExercise)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("FK_set_id");
         });
 
         modelBuilder.Entity<Workout>(entity =>

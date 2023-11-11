@@ -17,15 +17,7 @@ namespace Viking.Repositories
 
         public async Task<int> AddNewSet(Set set)
         {
-            await ConVikingSports.Sets.AddAsync(new Set
-            {
-                Id = Guid.NewGuid(),
-                Number = set.Number,
-                IdExercise = set.IdExercise,
-                LapsTime = set.LapsTime,
-                RepetitionNuber = set.RepetitionNuber,
-                SetWeight = set.SetWeight
-            });
+            await ConVikingSports.Sets.AddAsync(set);
 
             return await ConVikingSports.SaveChangesAsync();
         }
@@ -35,11 +27,11 @@ namespace Viking.Repositories
             return new Set
             {
                 Id = Guid.NewGuid(),
-                SetWeight = set.SetWeight,
+                SetWeight = 0,
                 IdExercise = set.IdExercise,
-                LapsTime = set.LapsTime,
-                RepetitionNuber = set.RepetitionNuber,
-                Number = set.Number
+                LapsTime = 0,
+                RepetitionNuber = 0,
+                Number = 0
             };
         }
 
@@ -51,7 +43,7 @@ namespace Viking.Repositories
 
         public async Task<int> DelSetsByExerciseId(Guid idExercise)
         {
-            var sets = await GetSet(idExercise);
+            var sets = await GetSets(idExercise);
             ConVikingSports.Sets.RemoveRange(sets);
             return await ConVikingSports.SaveChangesAsync();
         }
@@ -70,9 +62,9 @@ namespace Viking.Repositories
             return oldSet;
         }
 
-        public async Task<Set> GetSet(Guid idSet)
+        public async Task<Set> GetSet(Guid IdExercise)
         {
-            return await ConVikingSports.Sets.FirstAsync(t => t.Id == idSet);
+            return await ConVikingSports.Sets.FirstAsync(t => t.IdExercise == IdExercise);
         }
 
         public async Task<List<Set>> GetSets(Guid idExercise)

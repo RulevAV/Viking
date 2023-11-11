@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Viking.Interfaces;
 using Viking.Models.Sports;
+using Viking.Repositories;
 
 namespace Viking.Controllers;
 
@@ -31,13 +32,13 @@ public class ExerciseController : Controller
         }
     }
     
-    [HttpDelete("DeleteExercise")]
-    public async Task<IActionResult> DeleteExercise([FromBody] Exercise exercise)
+    [HttpDelete("DeleteExercise/{id}")]
+    public async Task<IActionResult> DeleteExercise(Exercise exercise)
     {
         try
         {
             await _rExercise.DelExercise(exercise);
-            return Ok();
+            return Json(exercise);
         }
         catch (Exception e)
         {
@@ -51,7 +52,7 @@ public class ExerciseController : Controller
         try
         {
             await _rExercise.DelExercises(exercises);
-            return Ok();
+            return Json(exercises);
         }
         catch (Exception e)
         {

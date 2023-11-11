@@ -55,22 +55,21 @@ namespace Viking.Repositories
         public async Task<Exercise> UpdateExercise(Exercise exercise)
         {
             var oldExercise = await GetExercise(exercise.Id);
-            oldExercise = exercise;
-            await ConVikingSports.AddAsync(oldExercise);
+            oldExercise.ExerciseName = exercise.ExerciseName;
             await ConVikingSports.SaveChangesAsync();
             return oldExercise;
         }
         public async Task<Exercise> GetExercise(Guid idExercise)
         {
-            return await ConVikingSports.Exercises.FirstAsync(t => t.Id == idExercise);
+            return await ConVikingSports.Exercises.Include(u => u.Sets).FirstAsync(t => t.Id == idExercise);
         }
         public async Task<List<Exercise>> GetExercisesByWorkoutId(Guid idExercise)
         {
-            return await ConVikingSports.Exercises.Where(t => t.IdWorkout== idExercise).ToListAsync();
+            return await ConVikingSports.Exercises.Where(t => t.IdWorkout== idExercise).Include(u => u.Sets).ToListAsync();
         }
         public async Task<List<Exercise>> GetExercises(Guid idExercise)
         {
-            return await ConVikingSports.Exercises.Where(t => t.IdWorkout == idExercise).ToListAsync();
+            return await ConVikingSports.Exercises.Where(t => t.IdWorkout == idExercise).Include(u=>u.Sets).ToListAsync();
         }
     }
 }
