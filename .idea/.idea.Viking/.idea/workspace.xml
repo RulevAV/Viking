@@ -10,37 +10,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a78bdc3b-35e3-4025-9b02-569e447e700e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Viking/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Viking/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Interfaces/bin/Debug/net7.0/Viking.Interfaces.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/bin/Debug/net7.0/Viking.Interfaces.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Interfaces/bin/Debug/net7.0/Viking.Interfaces.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/bin/Debug/net7.0/Viking.Interfaces.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Interfaces/bin/Debug/net7.0/Viking.Models.Sports.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/bin/Debug/net7.0/Viking.Models.Sports.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Interfaces/bin/Debug/net7.0/Viking.Models.Sports.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/bin/Debug/net7.0/Viking.Models.Sports.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Interfaces/obj/Debug/net7.0/Viking.Interfaces.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Models.Sports/Exercise.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Models.Sports/Exercise.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Models.Sports/Set.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Models.Sports/Set.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Models.Sports/bin/Debug/net7.0/Viking.Models.Sports.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Models.Sports/bin/Debug/net7.0/Viking.Models.Sports.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Models.Sports/bin/Debug/net7.0/Viking.Models.Sports.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Models.Sports/bin/Debug/net7.0/Viking.Models.Sports.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Models.Sports/conViking_Sports.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Models.Sports/conViking_Sports.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Models.Sports/obj/Debug/net7.0/Viking.Models.Sports.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Models.Sports/obj/Debug/net7.0/Viking.Models.Sports.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Models.Sports/obj/Debug/net7.0/Viking.Models.Sports.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Models.Sports/obj/Debug/net7.0/Viking.Models.Sports.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Models.Sports/obj/Debug/net7.0/ref/Viking.Models.Sports.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Models.Sports/obj/Debug/net7.0/ref/Viking.Models.Sports.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Models.Sports/obj/Debug/net7.0/refint/Viking.Models.Sports.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Models.Sports/obj/Debug/net7.0/refint/Viking.Models.Sports.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/RExercise.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/RExercise.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/RSet.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/RSet.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/RWorkout.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/RWorkout.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Interfaces.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Interfaces.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Interfaces.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Interfaces.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Models.Sports.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Models.Sports.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Models.Sports.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Models.Sports.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Repositories.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/bin/Debug/net7.0/Viking.Repositories.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/Viking.Repositories.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/ref/Viking.Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/ref/Viking.Repositories.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/refint/Viking.Repositories.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Viking.Repositories/obj/Debug/net7.0/refint/Viking.Repositories.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Viking/Controllers/SetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Viking/Controllers/SetController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,8 +42,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/83e91dece2a44ebac8dd1362114111598bced18cf67befa613f34c6abb94e651/IUserStore.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e2e3f232b3f74cfc56d24ec307aaea234eb831ec23796f1b454eb7e8fe1/CallSiteVisitor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/f91195dc1f983d6ec69125bd192fea551738920a3ae32077f21c5af5b9/UserManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Viking.Models.Base/Class1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Viking.Models.Identity/UserRefreshToken.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/eco/RiderProjects/Viking/Viking/Controllers/SetController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -178,7 +147,7 @@
       <workItem from="1699110990276" duration="241000" />
       <workItem from="1699266404293" duration="671000" />
       <workItem from="1699684917750" duration="14728000" />
-      <workItem from="1699764350984" duration="9433000" />
+      <workItem from="1699764350984" duration="10716000" />
     </task>
     <task id="LOCAL-00001" summary="postgre version 13.6 =&gt; 16">
       <option name="closed" value="true" />
@@ -308,7 +277,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699771092720</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="set component&#10;Я хз, он не может достучаться до удаления, я всю голову сломал)))">
+      <option name="closed" value="true" />
+      <created>1699782153447</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1699782153447</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,7 +329,8 @@
     <MESSAGE value="1.adding new elements" />
     <MESSAGE value="bk" />
     <MESSAGE value="bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix" />
+    <MESSAGE value="set component&#10;Я хз, он не может достучаться до удаления, я всю голову сломал)))" />
+    <option name="LAST_COMMIT_MESSAGE" value="set component&#10;Я хз, он не может достучаться до удаления, я всю голову сломал)))" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

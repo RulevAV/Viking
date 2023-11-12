@@ -39,9 +39,9 @@ class Set {
     async deleteSet(id: string) {
         return setService.DeleteSet(id).then(res => {
             exercise.exercises = exercise.exercises.map(ex => {
-                return res.idExercise !== ex.id ? ex : {
+                return{
                     ...ex,
-                    sets: [...ex.sets.map(se => (se.id === res.id ? res : se))]
+                    sets: [...ex.sets.filter(se => (se.id !== res.id ? res : se))]
                 }
             })
         })
