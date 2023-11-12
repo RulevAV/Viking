@@ -1,6 +1,8 @@
 import {makeAutoObservable} from "mobx";
 import workoutService from "../servise/workout";
 import WorkoutModel from "../models/WorkoutModel";
+import exercise from "./exercise";
+import set from "./set";
 
 
 class Workout {
@@ -16,6 +18,9 @@ class Workout {
     async getAllWorkout(){
         return workoutService.GetAllWorkout().then(res=>{
             this.workouts = res;
+            res.map(t => {
+                exercise.exercises = [...exercise.exercises, ...t.exercises]
+            })
         });
     }
     async updateWorkout(id:string,workoutName:string){

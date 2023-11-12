@@ -14,8 +14,8 @@ class SetService {
     async CreateNewSet(idExercise:string) {
         return await Base.post<SetModel>(this.controller + "CreateNewSet",{idExercise}) as SetModel;
     }
-    async UpdateSet(id:string,setName:string) {
-        return await Base.put<SetModel>(this.controller + "UpdateSet",{id,setName}) as SetModel;
+    async UpdateSet(id:string,repetitionNumber:number,setWeight:number) {
+        return await Base.put<SetModel>(this.controller + "UpdateSet",{id,repetitionNumber,setWeight}) as SetModel;
     }
     async DeleteSet(id:string) {
         return await Base.delete<SetModel>(this.controller + `DeleteSet/${id}`) as SetModel;

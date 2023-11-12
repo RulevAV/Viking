@@ -26,6 +26,8 @@ const Exercise: React.FC<exercisePropsType> = observer(({id, name}) => {
         })
     };
 
+    console.log(exercise.exercises)
+
     return (
         <Card
             style={{width: '100%'}}
@@ -59,7 +61,9 @@ const Exercise: React.FC<exercisePropsType> = observer(({id, name}) => {
             }
         >
             <div>
-                {exercise.exercise.map(e=>(<Set id={e.id}/>))}
+                {exercise.exercises.filter(e => e.id === id).map(ex =>{
+                    return ex.sets.map(s => <Set id={s.id} repetitionNuber={s.repetitionNumber} setWeight={s.setWeight}/>)
+                })}
             </div>
         </Card>
     );

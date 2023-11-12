@@ -3,6 +3,6 @@ export default interface SetModel{
     idExercise:string
     number: number,
     setWeight: number,
-    repetitionNuber: number,
+    repetitionNumber: number,
     lapsTime: number
 }

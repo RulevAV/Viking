@@ -2,6 +2,7 @@ import {makeAutoObservable} from "mobx";
 import ExerciseModel from "../models/ExerciseModel";
 import setService from "../servise/set";
 import SetModel from "../models/SetModel";
+import exercise from "./exercise";
 
 
 class Set {
@@ -11,45 +12,40 @@ class Set {
         makeAutoObservable(this);
     }
 
-    async getAllSet(id:string){
-        return setService.GetAllSet().then(res=>{
+    async getAllSet(id: string) {
+        return setService.GetAllSet().then(res => {
             this.sets = res;
         });
     }
 
     async createNewSet(idExercise: string) {
         return setService.CreateNewSet(idExercise).then(res => {
-            // this.exercise.unshift(res);
-            // Workout.workouts = Workout.workouts.map(w => (res.idWorkout !== w.id ? w : {
-            //     ...w,
-            //     exercises: [...w.exercises, res]
-            // }));
+            exercise.exercises.forEach(ex => ex.id === idExercise ? ex.sets.unshift(res) : null)
         });
     }
 
-    async updateSet(id: string, exerciseName: string) {
-        return setService.UpdateSet(id, exerciseName).then(res => {
-            // this.exercise = this.exercise.map(t => t.id === res.id ? res : t);
-            // Workout.workouts = Workout.workouts.map(w => {
-            //     return res.idWorkout !== w.id ? w : {
-            //         ...w,
-            //         exercises: [...w.exercises.map(e => (e.id === res.id ? res : e))]
-            //     }
-            // });
+    async updateSet(id: string, repetitonNumber: number, setWeight: number) {
+        return setService.UpdateSet(id, repetitonNumber, setWeight).then(res => {
+            exercise.exercises.forEach(ex => {
+                ex.sets.forEach(s => {
+                    if (s.id === id) {
+                        s = res
+                    }
+                })
+            })
         });
     }
 
     async deleteSet(id: string) {
         return setService.DeleteSet(id).then(res => {
-            // this.exercise = this.exercise.filter(t => t.id !== res.id);
-            // Workout.workouts = Workout.workouts.map(w=>{
-            //     return {
-            //         ...w,
-            //         exercises: w.exercises.filter(e=> e.id !== res.id)
-            //     }
-            // })
-        });
-    }
+            exercise.exercises = exercise.exercises.map(ex => {
+                return res.idExercise !== ex.id ? ex : {
+                    ...ex,
+                    sets: [...ex.sets.map(se => (se.id === res.id ? res : se))]
+                }
+            })
+        })
+    };
 }
 
 const set = new Set();

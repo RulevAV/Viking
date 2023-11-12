@@ -5,7 +5,7 @@ import Workout from "./workout";
 
 
 class Exercise {
-    exercise: ExerciseModel[] = [];
+    exercises: ExerciseModel[] = [];
 
     constructor() {
         makeAutoObservable(this);
@@ -13,7 +13,7 @@ class Exercise {
 
     async createNewExercise(idWorkout: string, name: string) {
         return exerciseService.CreateNewExercise(idWorkout, name).then(res => {
-            this.exercise.unshift(res);
+            this.exercises.unshift(res);
             Workout.workouts = Workout.workouts.map(w => (res.idWorkout !== w.id ? w : {
                 ...w,
                 exercises: [...w.exercises, res]
@@ -23,7 +23,7 @@ class Exercise {
 
     async updateExercise(id: string, exerciseName: string) {
         return exerciseService.UpdateExercise(id, exerciseName).then(res => {
-            this.exercise = this.exercise.map(t => t.id === res.id ? res : t);
+            this.exercises = this.exercises.map(t => t.id === res.id ? res : t);
             Workout.workouts = Workout.workouts.map(w => {
                 return res.idWorkout !== w.id ? w : {
                     ...w,
@@ -35,7 +35,7 @@ class Exercise {
 
     async deleteExercise(id: string) {
         return exerciseService.DeleteExercise(id).then(res => {
-            this.exercise = this.exercise.filter(t => t.id !== res.id);
+            this.exercises = this.exercises.filter(t => t.id !== res.id);
             Workout.workouts = Workout.workouts.map(w=>{
                 return {
                     ...w,
