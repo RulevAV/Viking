@@ -1097,27 +1097,29 @@
     "net7.0": [
       "System.IdentityModel.Tokens.Jwt >= 7.0.3",
       "Viking.Interfaces >= 1.0.0",
-      "Viking.Models.Identity >= 1.0.0"
+      "Viking.Models.Identity >= 1.0.0",
+      "Viking.Models.Sports >= 1.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Andrey\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\eco\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Andrey\\Desktop\\Viking\\Viking.Repositories\\Viking.Repositories.csproj",
+      "projectUniqueName": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Repositories\\Viking.Repositories.csproj",
       "projectName": "Viking.Repositories",
-      "projectPath": "C:\\Users\\Andrey\\Desktop\\Viking\\Viking.Repositories\\Viking.Repositories.csproj",
-      "packagesPath": "C:\\Users\\Andrey\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Andrey\\Desktop\\Viking\\Viking.Repositories\\obj\\",
+      "projectPath": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Repositories\\Viking.Repositories.csproj",
+      "packagesPath": "C:\\Users\\eco\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Repositories\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Andrey\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\eco\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1131,11 +1133,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Andrey\\Desktop\\Viking\\Viking.Interfaces\\Viking.Interfaces.csproj": {
-              "projectPath": "C:\\Users\\Andrey\\Desktop\\Viking\\Viking.Interfaces\\Viking.Interfaces.csproj"
+            "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Interfaces\\Viking.Interfaces.csproj": {
+              "projectPath": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Interfaces\\Viking.Interfaces.csproj"
             },
-            "C:\\Users\\Andrey\\Desktop\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj": {
-              "projectPath": "C:\\Users\\Andrey\\Desktop\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj"
+            "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj": {
+              "projectPath": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Identity\\Viking.Models.Identity.csproj"
+            },
+            "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Sports\\Viking.Models.Sports.csproj": {
+              "projectPath": "C:\\Users\\eco\\RiderProjects\\Viking\\Viking.Models.Sports\\Viking.Models.Sports.csproj"
             }
           }
         }
@@ -1171,7 +1176,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

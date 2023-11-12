@@ -80,8 +80,8 @@ namespace Viking.Repositories
         public async Task<List<Set>> GetSetsByExercises(List<Exercise> exercises)
         {
             if (exercises.Any())
-                return await ConVikingSports.Sets.Where(t => exercises.Any(k => k.Id == t.IdExercise)).ToListAsync();
-
+                    return  await ConVikingSports.Sets.Where(t => exercises.Select(e => e.Id).ToList().Contains(t.IdExercise)).ToListAsync();
+            
             return new List<Set>();
         }
     }
