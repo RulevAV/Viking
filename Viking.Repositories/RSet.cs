@@ -30,7 +30,7 @@ namespace Viking.Repositories
                 SetWeight = 0,
                 IdExercise = set.IdExercise,
                 LapsTime = 0,
-                RepetitionNuber = 0,
+                RepetitionNumber = 0,
                 Number = 0
             };
         }
@@ -57,14 +57,16 @@ namespace Viking.Repositories
         public async Task<Set> UpdateSet(Set set)
         {
             var oldSet = await GetSet(set.Id);
-            oldSet = set;
+            oldSet.RepetitionNumber = set.RepetitionNumber;
+            oldSet.SetWeight = set.SetWeight;
+            oldSet.LapsTime = set.LapsTime;
             await ConVikingSports.SaveChangesAsync();
             return oldSet;
         }
 
-        public async Task<Set> GetSet(Guid IdExercise)
+        public async Task<Set> GetSet(Guid IdSet)
         {
-            return await ConVikingSports.Sets.FirstAsync(t => t.IdExercise == IdExercise);
+            return await ConVikingSports.Sets.FirstAsync(t => t.Id == IdSet);
         }
 
         public async Task<List<Set>> GetSets(Guid idExercise)

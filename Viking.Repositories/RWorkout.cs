@@ -48,7 +48,8 @@ public class RWorkout : Base, IWorkout
 
     public async Task<List<Workout>> GetWorkouts(Guid IdUser)
     {
-        return await ConVikingSports.Workouts.Where(t => t.IdUser == IdUser).Include(k => k.Exercises)
+        return await ConVikingSports.Workouts.Where(t => t.IdUser == IdUser).Include(k => k.Exercises.OrderBy(ex => ex.Number))
+            .ThenInclude(s => s.Sets.OrderBy(se => se.Number))
             .OrderBy(t => t.DateOfWeek).ToListAsync();
     }
 }

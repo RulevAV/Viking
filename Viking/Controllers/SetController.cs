@@ -34,8 +34,8 @@ namespace Viking.Controllers
             }
         }
 
-        [HttpDelete("DeleteSet")]
-        public async Task<IActionResult> DeleteSet([FromBody] Set Set)
+        [HttpDelete("DeleteSet/{id}")]
+        public async Task<IActionResult> DeleteSet(Set Set)
         {
             try
             {

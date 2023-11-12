@@ -13,7 +13,7 @@ public partial class Set
 
     public long SetWeight { get; set; }
 
-    public short? RepetitionNuber { get; set; }
+    public short? RepetitionNumber { get; set; }
 
     public long? LapsTime { get; set; }
 

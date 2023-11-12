@@ -18,12 +18,7 @@ namespace Viking.Repositories
         }
         public async Task<int> AddNewExercise(Exercise exercise)
         {
-            await ConVikingSports.Exercises.AddAsync(new Exercise
-            {
-                Id = Guid.NewGuid(),
-                ExerciseName = exercise.ExerciseName,
-                IdWorkout = exercise.IdWorkout
-            });
+            await ConVikingSports.Exercises.AddAsync(exercise);
 
             return await ConVikingSports.SaveChangesAsync();
         }

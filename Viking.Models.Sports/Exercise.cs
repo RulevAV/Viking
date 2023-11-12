@@ -11,6 +11,8 @@ public partial class Exercise
 
     public string ExerciseName { get; set; } = null!;
 
+    public long Number { get; set; }
+
     public virtual Workout IdWorkoutNavigation { get; set; } = null!;
 
     public virtual ICollection<Set> Sets { get; set; } = new List<Set>();
